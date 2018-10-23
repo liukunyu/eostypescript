@@ -1,6 +1,6 @@
 import "allocator/arena";
 
-import { env as EOS, ISerializable, Contract } from "../../src/eoslib";
+import { env as GXC, ISerializable, Contract } from "../../src/gxclib";
 import { DataStream } from "../../src/datastream";
 import { printstr, N, assert } from "../../src/utils";
 import { Create, Remove, RemoveAll, Step } from "../../src/actions";
@@ -17,16 +17,14 @@ export class GameOfLife extends Contract {
 
   // step action
   on_step(args: Step): void {
-    EOS.require_auth(args.user);
-
-    let it = EOS.db_find_i64(this.receiver, args.user, N("boards"), args.game);
+    let it = GXC.db_find_i64(this.receiver, args.user, N("boards"), args.game);
     assert(it >= 0, "game not found");
 
-    let len = EOS.db_get_i64(it, 0, 0);
+    let len = GXC.db_get_i64(it, 0, 0);
     assert(len >= 0, "invalid length");
 
     let arr = new Uint8Array(len);
-    len = EOS.db_get_i64(it, <usize>arr.buffer, len);
+    len = GXC.db_get_i64(it, <usize>arr.buffer, len);
     assert(len >= 0, "invalid length");
 
     let ds = new DataStream(<usize>arr.buffer, len);
@@ -61,28 +59,25 @@ export class GameOfLife extends Contract {
     arr = new Uint8Array(64000);
     ds = new DataStream(<usize>arr.buffer, len);
     Board.to_ds(board, ds);
-    EOS.db_update_i64(it, args.user, ds.buffer, ds.pos);
+    GXC.db_update_i64(it, args.user, ds.buffer, ds.pos);
   }
 
   // remove all action
   on_remove_all(args: RemoveAll): void {
-    EOS.require_auth(args.user);
-
-    let it = EOS.db_lowerbound_i64(this.receiver, args.user, N("boards"), 0);
+    let it = GXC.db_lowerbound_i64(this.receiver, args.user, N("boards"), 0);
 
     while (it >= 0) {
       let del = it;
-      it = EOS.db_next_i64(it, offsetof<this>("dummy"));
-      EOS.db_remove_i64(del);
+      it = GXC.db_next_i64(it, offsetof<this>("dummy"));
+      GXC.db_remove_i64(del);
     }
   }
 
   // remove action
   on_remove(args: Remove): void {
-    EOS.require_auth(args.user);
-    let it = EOS.db_find_i64(this.receiver, args.user, N("boards"), args.game);
+    let it = GXC.db_find_i64(this.receiver, args.user, N("boards"), args.game);
     if (it >= 0) {
-      EOS.db_remove_i64(it);
+      GXC.db_remove_i64(it);
     }
   }
 
@@ -101,7 +96,7 @@ export class GameOfLife extends Contract {
     let ds = new DataStream(<usize>arr.buffer, 64000);
 
     Board.to_ds(board, ds);
-    let it = EOS.db_store_i64(args.user, N("boards"), args.user, args.game, ds.buffer, ds.pos);
+    let it = GXC.db_store_i64(args.user, N("boards"), args.user, args.game, ds.buffer, ds.pos);
   }
 
   apply(code: u64, action: u64): void {
