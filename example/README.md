@@ -7,7 +7,7 @@ cd /Users/sky/code/gxctypescript/example
 ./scripts/02-compile.sh
 3.将当前目录下的helloworld目录拷贝到gxchain安装目录下
 cp -r helloworld ~/gxb_install
-4。删除helloworld/helloworld.wast文件中的abort相关的代码(包括调用的地方)
+4.删除helloworld/helloworld.wast文件中的abort相关的代码(包括调用的地方)
 5.编译wast到wasm
 ./bin/wat2wasm helloworld/helloworld.wast -o helloworld/helloworld.wasm
 
