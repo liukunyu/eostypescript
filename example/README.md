@@ -12,7 +12,8 @@ cp -r helloworld ~/gxb_install
 
 4.删除helloworld/helloworld.wast文件中的abort相关的代码(包括调用的地方)
 
-5.编译wast到wasm:
+5.cd到gxchain安装目录下，并编译wast到wasm:
+cd ~/gxb_install
 ./bin/wat2wasm helloworld/helloworld.wast -o helloworld/helloworld.wasm
 
 ```
