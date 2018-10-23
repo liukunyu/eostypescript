@@ -11,77 +11,56 @@
  (type $iiii (func (param i32 i32 i32) (result i32)))
  (type $iIIiiii (func (param i32 i64 i64 i32 i32 i32) (result i32)))
  (type $iiv (func (param i32 i32)))
- (type $iIIi (func (param i32 i64 i64) (result i32)))
- (type $IIIIi (func (param i64 i64 i64 i64) (result i32)))
- (type $iv (func (param i32)))
- (type $Iiiii (func (param i64 i32 i32 i32) (result i32)))
+ (type $Iv (func (param i64)))
  (type $iIv (func (param i32 i64)))
- (type $IIIIiii (func (param i64 i64 i64 i64 i32 i32) (result i32)))
+ (type $Iiiii (func (param i64 i32 i32 i32) (result i32)))
  (type $iiiiiii (func (param i32 i32 i32 i32 i32 i32) (result i32)))
- (type $iIiiv (func (param i32 i64 i32 i32)))
  (type $v (func))
  (import "env" "abort" (func $abort (param i32 i32 i32 i32)))
  (import "env" "action_data_size" (func $../gxctslib/gxclib/env.action_data_size (result i32)))
  (import "env" "read_action_data" (func $../gxctslib/gxclib/env.read_action_data (param i32 i32) (result i32)))
- (import "env" "db_find_i64" (func $../gxctslib/gxclib/env.db_find_i64 (param i64 i64 i64 i64) (result i32)))
- (import "env" "db_remove_i64" (func $../gxctslib/gxclib/env.db_remove_i64 (param i32)))
+ (import "env" "printi" (func $../gxctslib/gxclib/env.printi (param i64)))
  (import "env" "graphene_assert" (func $../gxctslib/gxclib/env.graphene_assert (param i32 i32)))
- (import "env" "db_store_i64" (func $../gxctslib/gxclib/env.db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
- (import "env" "db_lowerbound_i64" (func $../gxctslib/gxclib/env.db_lowerbound_i64 (param i64 i64 i64 i64) (result i32)))
- (import "env" "db_next_i64" (func $../gxctslib/gxclib/env.db_next_i64 (param i32 i32) (result i32)))
- (import "env" "db_get_i64" (func $../gxctslib/gxclib/env.db_get_i64 (param i32 i32 i32) (result i32)))
- (import "env" "db_update_i64" (func $../gxctslib/gxclib/env.db_update_i64 (param i32 i64 i32 i32)))
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
  (global $~lib/allocator/arena/offset (mut i32) (i32.const 0))
  (global $~argc (mut i32) (i32.const 0))
- (global $HEAP_BASE i32 (i32.const 616))
+ (global $HEAP_BASE i32 (i32.const 356))
  (memory $0 1)
  (data (i32.const 8) "\06\00\00\00c\00r\00e\00a\00t\00e")
  (data (i32.const 24) "\0e\00\00\00~\00l\00i\00b\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s")
  (data (i32.const 56) "\1b\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00t\00y\00p\00e\00d\00a\00r\00r\00a\00y\00.\00t\00s")
  (data (i32.const 116) "\1c\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
- (data (i32.const 176) "\06\00\00\00b\00o\00a\00r\00d\00s")
- (data (i32.const 192) "\1d\00\00\00n\00u\00m\00_\00r\00o\00w\00s\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00 \00[\003\00 \001\000\000\00]")
- (data (i32.const 256) "\0d\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 288) "\1d\00\00\00n\00u\00m\00_\00c\00o\00l\00s\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00 \00[\003\00 \001\000\000\00]")
- (data (i32.const 352) "\01\00\00\00*")
- (data (i32.const 360) "\01\00\00\00 ")
- (data (i32.const 368) "\04\00\00\00n\00u\00l\00l")
- (data (i32.const 380) "\17\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s")
- (data (i32.const 432) "\06\00\00\00r\00e\00m\00o\00v\00e")
- (data (i32.const 448) "\t\00\00\00r\00e\00m\00o\00v\00e\00a\00l\00l")
- (data (i32.const 472) "\04\00\00\00s\00t\00e\00p")
- (data (i32.const 484) "\0e\00\00\00g\00a\00m\00e\00 \00n\00o\00t\00 \00f\00o\00u\00n\00d")
- (data (i32.const 516) "\0e\00\00\00i\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h")
- (data (i32.const 548) "\0f\00\00\00g\00a\00m\00e\00 \00i\00s\00 \00c\00o\00r\00r\00u\00p\00t")
- (data (i32.const 584) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
- (export "GameOfLife#on_remove" (func $src/helloworld/GameOfLife#on_remove))
- (export "Board.gen_random" (func $src/helloworld/Board.gen_random))
- (export "Board.to_ds" (func $src/helloworld/Board.to_ds))
- (export "GameOfLife#on_create" (func $src/helloworld/GameOfLife#on_create))
- (export "GameOfLife#on_remove_all" (func $src/helloworld/GameOfLife#on_remove_all))
- (export "Board.from_ds" (func $src/helloworld/Board.from_ds))
- (export "BoardSize#constructor" (func $src/helloworld/BoardSize#constructor))
- (export "Board#get_size" (func $src/helloworld/Board#get_size))
- (export "Board.alive" (func $src/helloworld/Board.alive))
- (export "GameOfLife#on_step" (func $src/helloworld/GameOfLife#on_step))
- (export "GameOfLife#apply" (func $src/helloworld/GameOfLife#apply))
+ (data (i32.const 176) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
+ (data (i32.const 208) "\0d\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
+ (data (i32.const 240) "\17\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s")
+ (data (i32.const 292) "\01\00\00\00*")
+ (data (i32.const 300) "\01\00\00\00 ")
+ (data (i32.const 308) "\04\00\00\00n\00u\00l\00l")
+ (data (i32.const 320) "\0f\00\00\00g\00a\00m\00e\00 \00i\00s\00 \00c\00o\00r\00r\00u\00p\00t")
+ (export "HelloWorld#on_create" (func $src/helloworld/HelloWorld#on_create))
+ (export "HelloWorld#apply" (func $src/helloworld/HelloWorld#apply))
  (export "apply" (func $src/helloworld/apply))
  (export "Contract#get:receiver" (func $Contract#get:receiver))
  (export "Contract#set:receiver" (func $Contract#set:receiver))
- (export "GameOfLife#get:dummy" (func $GameOfLife#get:dummy))
- (export "GameOfLife#set:dummy" (func $GameOfLife#set:dummy))
+ (export "HelloWorld#get:dummy" (func $HelloWorld#get:dummy))
+ (export "HelloWorld#set:dummy" (func $HelloWorld#set:dummy))
+ (export "BoardSize#constructor" (func $src/helloworld/BoardSize#constructor))
  (export "BoardSize#get:num_rows" (func $BoardSize#get:num_rows))
  (export "BoardSize#set:num_rows" (func $BoardSize#set:num_rows))
- (export "BoardSize#get:num_cols" (func $~lib/array/Array<String>#get:length))
+ (export "BoardSize#get:num_cols" (func $BoardSize#get:num_cols))
  (export "BoardSize#set:num_cols" (func $BoardSize#set:num_cols))
+ (export "Board.from_ds" (func $src/helloworld/Board.from_ds))
+ (export "Board.to_ds" (func $src/helloworld/Board.to_ds))
+ (export "Board.gen_random" (func $src/helloworld/Board.gen_random))
+ (export "Board.alive" (func $src/helloworld/Board.alive))
  (export "Board#get:game" (func $Contract#get:receiver))
  (export "Board#set:game" (func $Contract#set:receiver))
  (export "Board#get:rows" (func $Board#get:rows))
  (export "Board#set:rows" (func $Board#set:rows))
+ (export "Board#get_size" (func $src/helloworld/Board#get_size))
  (export "memory" (memory $0))
  (start $start)
- (func $~lib/allocator/arena/allocate_memory (; 11 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/allocator/arena/allocate_memory (; 5 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -170,7 +149,7 @@
   )
   (i32.const 0)
  )
- (func $../gxctslib/gxclib/Contract#constructor (; 12 ;) (type $iIi) (param $0 i32) (param $1 i64) (result i32)
+ (func $../gxctslib/gxclib/Contract#constructor (; 6 ;) (type $iIi) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   (i64.store
    (if (result i32)
@@ -194,7 +173,7 @@
   )
   (get_local $0)
  )
- (func $~lib/string/String#charCodeAt (; 13 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charCodeAt (; 7 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (if
    (i32.eqz
     (get_local $0)
@@ -230,7 +209,7 @@
    )
   )
  )
- (func $../gxctslib/utils/char_to_symbol (; 14 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/char_to_symbol (; 8 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (if
    (if (result i32)
@@ -280,7 +259,7 @@
   )
   (i64.const 0)
  )
- (func $../gxctslib/utils/N (; 15 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/N (; 9 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (local $2 i64)
   (local $3 i32)
@@ -362,7 +341,7 @@
   )
   (get_local $2)
  )
- (func $~lib/internal/arraybuffer/computeSize (; 16 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/computeSize (; 10 ;) (type $ii) (param $0 i32) (result i32)
   (i32.shl
    (i32.const 1)
    (i32.sub
@@ -376,7 +355,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/allocUnsafe (; 17 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/allocUnsafe (; 11 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (if
    (i32.gt_u
@@ -405,7 +384,7 @@
   )
   (get_local $1)
  )
- (func $~lib/memory/set_memory (; 18 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/set_memory (; 12 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i64)
   (local $4 i32)
   (if
@@ -741,7 +720,7 @@
    )
   )
  )
- (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 19 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 13 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (if
    (i32.gt_u
@@ -806,7 +785,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/datastream/DataStream#constructor (; 20 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#constructor (; 14 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (i32.store
    (if (result i32)
@@ -846,7 +825,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/gxclib/Contract#get_ds (; 21 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/gxclib/Contract#get_ds (; 15 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (drop
    (call $../gxctslib/gxclib/env.read_action_data
@@ -871,7 +850,7 @@
    (get_local $0)
   )
  )
- (func $../gxctslib/datastream/DataStream#read<u64> (; 22 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/datastream/DataStream#read<u64> (; 16 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i64)
   (set_local $1
    (i64.load
@@ -896,7 +875,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#read<u32> (; 23 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#read<u32> (; 17 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (set_local $1
    (i32.load
@@ -921,7 +900,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/actions/Create#constructor (; 24 ;) (type $iIIiiii) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
+ (func $../gxctslib/actions/Create#constructor (; 18 ;) (type $iIIiiii) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
   (local $6 i32)
   (i64.store
    (if (result i32)
@@ -977,7 +956,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/actions/Create.from_ds (; 25 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/actions/Create.from_ds (; 19 ;) (type $ii) (param $0 i32) (result i32)
   (call $../gxctslib/actions/Create#constructor
    (i32.const 0)
    (call $../gxctslib/datastream/DataStream#read<u64>
@@ -997,66 +976,35 @@
    )
   )
  )
- (func $../gxctslib/actions/Remove#constructor (; 26 ;) (type $iIIi) (param $0 i32) (param $1 i64) (param $2 i64) (result i32)
-  (local $3 i32)
-  (i64.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i64.store
-      (tee_local $3
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 16)
-       )
-      )
-      (i64.const 0)
-     )
-     (i64.store offset=8
-      (get_local $3)
-      (i64.const 0)
-     )
-     (tee_local $0
-      (get_local $3)
-     )
+ (func $src/helloworld/HelloWorld#on_create (; 20 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (call $../gxctslib/gxclib/env.printi
+   (i64.load offset=8
+    (get_local $1)
+   )
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=16
+     (get_local $1)
     )
    )
-   (get_local $1)
   )
-  (i64.store offset=8
-   (get_local $0)
-   (get_local $2)
-  )
-  (get_local $0)
- )
- (func $src/helloworld/GameOfLife#on_remove (; 27 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  (if
-   (i32.ge_s
-    (tee_local $2
-     (call $../gxctslib/gxclib/env.db_find_i64
-      (i64.load
-       (get_local $0)
-      )
-      (i64.load
-       (get_local $1)
-      )
-      (call $../gxctslib/utils/N
-       (i32.const 176)
-      )
-      (i64.load offset=8
-       (get_local $1)
-      )
-     )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=20
+     (get_local $1)
     )
-    (i32.const 0)
    )
-   (call $../gxctslib/gxclib/env.db_remove_i64
-    (get_local $2)
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=24
+     (get_local $1)
+    )
    )
   )
  )
- (func $~lib/array/Array<u8>#constructor (; 28 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#constructor (; 21 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (if
@@ -1067,7 +1015,7 @@
    (block
     (call $abort
      (i32.const 0)
-     (i32.const 256)
+     (i32.const 208)
      (i32.const 23)
      (i32.const 39)
     )
@@ -1117,7 +1065,7 @@
   )
   (get_local $0)
  )
- (func $~lib/memory/copy_memory (; 29 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/copy_memory (; 22 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (loop $continue|0
@@ -2693,7 +2641,7 @@
    )
   )
  )
- (func $~lib/memory/move_memory (; 30 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/move_memory (; 23 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (if
    (i32.eq
@@ -2980,7 +2928,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/reallocUnsafe (; 31 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/arraybuffer/reallocUnsafe (; 24 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (if
@@ -3104,7 +3052,7 @@
   )
   (get_local $0)
  )
- (func $~lib/array/Array<u8>#push (; 32 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#push (; 25 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -3138,7 +3086,7 @@
      (block
       (call $abort
        (i32.const 0)
-       (i32.const 256)
+       (i32.const 208)
        (i32.const 143)
        (i32.const 42)
       )
@@ -3169,7 +3117,7 @@
   )
   (get_local $3)
  )
- (func $../gxctslib/utils/toUTF8Array (; 33 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/toUTF8Array (; 26 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -3354,7 +3302,7 @@
   )
   (get_local $2)
  )
- (func $../gxctslib/utils/string2cstr (; 34 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/string2cstr (; 27 ;) (type $ii) (param $0 i32) (result i32)
   (i32.add
    (i32.load
     (call $../gxctslib/utils/toUTF8Array
@@ -3364,7 +3312,7 @@
    (i32.const 8)
   )
  )
- (func $../gxctslib/utils/assert (; 35 ;) (type $iiv) (param $0 i32) (param $1 i32)
+ (func $../gxctslib/utils/assert (; 28 ;) (type $iiv) (param $0 i32) (param $1 i32)
   (if
    (i32.eqz
     (i32.and
@@ -3380,7 +3328,115 @@
    )
   )
  )
- (func $~lib/array/Array<String>#constructor (; 36 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $src/helloworld/HelloWorld#apply (; 29 ;) (type $iIIv) (param $0 i32) (param $1 i64) (param $2 i64)
+  (if
+   (i64.eq
+    (get_local $2)
+    (call $../gxctslib/utils/N
+     (i32.const 8)
+    )
+   )
+   (call $src/helloworld/HelloWorld#on_create
+    (get_local $0)
+    (call $../gxctslib/actions/Create.from_ds
+     (call $../gxctslib/gxclib/Contract#get_ds
+      (get_local $0)
+     )
+    )
+   )
+   (call $../gxctslib/utils/assert
+    (i32.const 0)
+    (i32.const 176)
+   )
+  )
+ )
+ (func $src/helloworld/apply (; 30 ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
+  (call $src/helloworld/HelloWorld#apply
+   (call $../gxctslib/gxclib/Contract#constructor
+    (i32.const 0)
+    (get_local $0)
+   )
+   (get_local $1)
+   (get_local $2)
+  )
+ )
+ (func $Contract#get:receiver (; 31 ;) (type $iI) (param $0 i32) (result i64)
+  (i64.load
+   (get_local $0)
+  )
+ )
+ (func $Contract#set:receiver (; 32 ;) (type $iIv) (param $0 i32) (param $1 i64)
+  (i64.store
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $HelloWorld#get:dummy (; 33 ;) (type $iI) (param $0 i32) (result i64)
+  (i64.load offset=8
+   (get_local $0)
+  )
+ )
+ (func $HelloWorld#set:dummy (; 34 ;) (type $iIv) (param $0 i32) (param $1 i64)
+  (i64.store offset=8
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $src/helloworld/BoardSize#constructor (; 35 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  (i32.store
+   (if (result i32)
+    (get_local $0)
+    (get_local $0)
+    (block (result i32)
+     (i32.store
+      (tee_local $3
+       (call $~lib/allocator/arena/allocate_memory
+        (i32.const 8)
+       )
+      )
+      (i32.const 0)
+     )
+     (i32.store offset=4
+      (get_local $3)
+      (i32.const 0)
+     )
+     (tee_local $0
+      (get_local $3)
+     )
+    )
+   )
+   (get_local $1)
+  )
+  (i32.store offset=4
+   (get_local $0)
+   (get_local $2)
+  )
+  (get_local $0)
+ )
+ (func $BoardSize#get:num_rows (; 36 ;) (type $ii) (param $0 i32) (result i32)
+  (i32.load
+   (get_local $0)
+  )
+ )
+ (func $BoardSize#set:num_rows (; 37 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (i32.store
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $BoardSize#get:num_cols (; 38 ;) (type $ii) (param $0 i32) (result i32)
+  (i32.load offset=4
+   (get_local $0)
+  )
+ )
+ (func $BoardSize#set:num_cols (; 39 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (i32.store offset=4
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $~lib/array/Array<String>#constructor (; 40 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (if
@@ -3391,7 +3447,7 @@
    (block
     (call $abort
      (i32.const 0)
-     (i32.const 256)
+     (i32.const 208)
      (i32.const 23)
      (i32.const 39)
     )
@@ -3444,736 +3500,7 @@
   )
   (get_local $0)
  )
- (func $~lib/array/Array<String>#constructor|trampoline (; 37 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (block $1of1
-   (block $0of1
-    (block $oob
-     (br_table $0of1 $1of1 $oob
-      (get_global $~argc)
-     )
-    )
-    (unreachable)
-   )
-   (set_local $1
-    (i32.const 0)
-   )
-  )
-  (call $~lib/array/Array<String>#constructor
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $src/helloworld/rnd (; 38 ;) (type $ii) (param $0 i32) (result i32)
-  (i32.rem_u
-   (i32.mul
-    (get_local $0)
-    (i32.const 16807)
-   )
-   (i32.const 2147483647)
-  )
- )
- (func $~lib/internal/string/allocate (; 39 ;) (type $ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  (if
-   (i32.eqz
-    (if (result i32)
-     (tee_local $1
-      (i32.gt_s
-       (get_local $0)
-       (i32.const 0)
-      )
-     )
-     (i32.le_s
-      (get_local $0)
-      (i32.const 536870910)
-     )
-     (get_local $1)
-    )
-   )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 380)
-     (i32.const 20)
-     (i32.const 2)
-    )
-    (unreachable)
-   )
-  )
-  (i32.store
-   (tee_local $1
-    (call $~lib/allocator/arena/allocate_memory
-     (i32.add
-      (i32.shl
-       (get_local $0)
-       (i32.const 1)
-      )
-      (i32.const 4)
-     )
-    )
-   )
-   (get_local $0)
-  )
-  (get_local $1)
- )
- (func $~lib/string/String#concat (; 40 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (if
-   (i32.eqz
-    (get_local $0)
-   )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 24)
-     (i32.const 74)
-     (i32.const 4)
-    )
-    (unreachable)
-   )
-  )
-  (if
-   (i32.eqz
-    (get_local $1)
-   )
-   (set_local $1
-    (i32.const 368)
-   )
-  )
-  (if
-   (i32.eqz
-    (tee_local $2
-     (i32.add
-      (tee_local $3
-       (i32.load
-        (get_local $0)
-       )
-      )
-      (tee_local $4
-       (i32.load
-        (get_local $1)
-       )
-      )
-     )
-    )
-   )
-   (return
-    (i32.const 4)
-   )
-  )
-  (call $~lib/memory/move_memory
-   (i32.add
-    (tee_local $2
-     (call $~lib/internal/string/allocate
-      (get_local $2)
-     )
-    )
-    (i32.const 4)
-   )
-   (i32.add
-    (get_local $0)
-    (i32.const 4)
-   )
-   (i32.shl
-    (get_local $3)
-    (i32.const 1)
-   )
-  )
-  (call $~lib/memory/move_memory
-   (i32.add
-    (i32.add
-     (get_local $2)
-     (i32.const 4)
-    )
-    (i32.shl
-     (get_local $3)
-     (i32.const 1)
-    )
-   )
-   (i32.add
-    (get_local $1)
-    (i32.const 4)
-   )
-   (i32.shl
-    (get_local $4)
-    (i32.const 1)
-   )
-  )
-  (get_local $2)
- )
- (func $~lib/string/String.__concat (; 41 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (if
-   (i32.eqz
-    (get_local $0)
-   )
-   (set_local $0
-    (i32.const 368)
-   )
-  )
-  (call $~lib/string/String#concat
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $~lib/array/Array<String>#push (; 42 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (set_local $3
-   (i32.add
-    (tee_local $2
-     (i32.load offset=4
-      (get_local $0)
-     )
-    )
-    (i32.const 1)
-   )
-  )
-  (if
-   (i32.ge_u
-    (get_local $2)
-    (i32.shr_u
-     (i32.load
-      (tee_local $4
-       (i32.load
-        (get_local $0)
-       )
-      )
-     )
-     (i32.const 2)
-    )
-   )
-   (block
-    (if
-     (i32.ge_u
-      (get_local $2)
-      (i32.const 268435454)
-     )
-     (block
-      (call $abort
-       (i32.const 0)
-       (i32.const 256)
-       (i32.const 143)
-       (i32.const 42)
-      )
-      (unreachable)
-     )
-    )
-    (i32.store
-     (get_local $0)
-     (tee_local $4
-      (call $~lib/internal/arraybuffer/reallocUnsafe
-       (get_local $4)
-       (i32.shl
-        (get_local $3)
-        (i32.const 2)
-       )
-      )
-     )
-    )
-   )
-  )
-  (i32.store offset=4
-   (get_local $0)
-   (get_local $3)
-  )
-  (i32.store offset=8
-   (i32.add
-    (get_local $4)
-    (i32.shl
-     (get_local $2)
-     (i32.const 2)
-    )
-   )
-   (get_local $1)
-  )
-  (get_local $3)
- )
- (func $src/helloworld/Board.gen_random (; 43 ;) (type $Iiiii) (param $0 i64) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
-  (local $4 i32)
-  (local $5 i32)
-  (local $6 i32)
-  (local $7 i32)
-  (i64.store
-   (tee_local $4
-    (call $~lib/allocator/arena/allocate_memory
-     (i32.const 12)
-    )
-   )
-   (i64.const 0)
-  )
-  (i32.store offset=8
-   (get_local $4)
-   (i32.const 0)
-  )
-  (i64.store
-   (get_local $4)
-   (get_local $0)
-  )
-  (set_global $~argc
-   (i32.const 0)
-  )
-  (i32.store offset=8
-   (get_local $4)
-   (call $~lib/array/Array<String>#constructor|trampoline
-    (i32.const 0)
-    (i32.const 0)
-   )
-  )
-  (loop $continue|0
-   (if
-    (i32.lt_u
-     (get_local $5)
-     (get_local $1)
-    )
-    (block
-     (set_local $6
-      (i32.const 4)
-     )
-     (set_local $7
-      (i32.const 0)
-     )
-     (loop $continue|1
-      (if
-       (i32.lt_u
-        (get_local $7)
-        (get_local $2)
-       )
-       (block
-        (set_local $6
-         (call $~lib/string/String.__concat
-          (get_local $6)
-          (select
-           (i32.const 352)
-           (i32.const 360)
-           (i32.and
-            (tee_local $3
-             (call $src/helloworld/rnd
-              (get_local $3)
-             )
-            )
-            (i32.const 1)
-           )
-          )
-         )
-        )
-        (set_local $7
-         (i32.add
-          (get_local $7)
-          (i32.const 1)
-         )
-        )
-        (br $continue|1)
-       )
-      )
-     )
-     (drop
-      (call $~lib/array/Array<String>#push
-       (i32.load offset=8
-        (get_local $4)
-       )
-       (get_local $6)
-      )
-     )
-     (set_local $5
-      (i32.add
-       (get_local $5)
-       (i32.const 1)
-      )
-     )
-     (br $continue|0)
-    )
-   )
-  )
-  (get_local $4)
- )
- (func $../gxctslib/datastream/DataStream#store<u64> (; 44 ;) (type $iIv) (param $0 i32) (param $1 i64)
-  (i64.store
-   (i32.add
-    (i32.load
-     (get_local $0)
-    )
-    (i32.load offset=8
-     (get_local $0)
-    )
-   )
-   (get_local $1)
-  )
-  (i32.store offset=8
-   (get_local $0)
-   (i32.add
-    (i32.load offset=8
-     (get_local $0)
-    )
-    (i32.const 8)
-   )
-  )
- )
- (func $~lib/array/Array<String>#get:length (; 45 ;) (type $ii) (param $0 i32) (result i32)
-  (i32.load offset=4
-   (get_local $0)
-  )
- )
- (func $../gxctslib/datastream/DataStream#store<u8> (; 46 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (i32.store8
-   (i32.add
-    (i32.load
-     (get_local $0)
-    )
-    (i32.load offset=8
-     (get_local $0)
-    )
-   )
-   (get_local $1)
-  )
-  (i32.store offset=8
-   (get_local $0)
-   (i32.add
-    (i32.load offset=8
-     (get_local $0)
-    )
-    (i32.const 1)
-   )
-  )
- )
- (func $../gxctslib/datastream/DataStream#writeVarint32 (; 47 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (loop $continue|0
-   (call $../gxctslib/datastream/DataStream#store<u8>
-    (get_local $0)
-    (i32.or
-     (i32.and
-      (get_local $1)
-      (i32.const 127)
-     )
-     (i32.shl
-      (select
-       (i32.const 1)
-       (i32.const 0)
-       (i32.gt_u
-        (tee_local $1
-         (i32.shr_u
-          (get_local $1)
-          (i32.const 7)
-         )
-        )
-        (i32.const 0)
-       )
-      )
-      (i32.const 7)
-     )
-    )
-   )
-   (br_if $continue|0
-    (get_local $1)
-   )
-  )
- )
- (func $~lib/array/Array<String>#__get (; 48 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (if (result i32)
-   (i32.lt_u
-    (get_local $1)
-    (i32.shr_u
-     (i32.load
-      (tee_local $2
-       (i32.load
-        (get_local $0)
-       )
-      )
-     )
-     (i32.const 2)
-    )
-   )
-   (i32.load offset=8
-    (i32.add
-     (get_local $2)
-     (i32.shl
-      (get_local $1)
-      (i32.const 2)
-     )
-    )
-   )
-   (unreachable)
-  )
- )
- (func $../gxctslib/datastream/DataStream#writeString (; 49 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  (call $../gxctslib/datastream/DataStream#writeVarint32
-   (get_local $0)
-   (tee_local $2
-    (i32.load
-     (get_local $1)
-    )
-   )
-  )
-  (if
-   (i32.eqz
-    (get_local $2)
-   )
-   (return)
-  )
-  (set_local $1
-   (call $../gxctslib/utils/toUTF8Array
-    (get_local $1)
-   )
-  )
-  (call $~lib/memory/move_memory
-   (i32.add
-    (i32.load
-     (get_local $0)
-    )
-    (i32.load offset=8
-     (get_local $0)
-    )
-   )
-   (i32.add
-    (i32.load
-     (get_local $1)
-    )
-    (i32.const 8)
-   )
-   (i32.sub
-    (call $~lib/array/Array<String>#get:length
-     (get_local $1)
-    )
-    (i32.const 1)
-   )
-  )
-  (i32.store offset=8
-   (get_local $0)
-   (i32.add
-    (i32.load offset=8
-     (get_local $0)
-    )
-    (i32.sub
-     (call $~lib/array/Array<String>#get:length
-      (get_local $1)
-     )
-     (i32.const 1)
-    )
-   )
-  )
- )
- (func $src/helloworld/Board.to_ds (; 50 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  (call $../gxctslib/datastream/DataStream#store<u64>
-   (get_local $1)
-   (i64.load
-    (get_local $0)
-   )
-  )
-  (call $../gxctslib/datastream/DataStream#writeVarint32
-   (get_local $1)
-   (call $~lib/array/Array<String>#get:length
-    (tee_local $2
-     (i32.load offset=8
-      (get_local $0)
-     )
-    )
-   )
-  )
-  (if
-   (call $~lib/array/Array<String>#get:length
-    (get_local $2)
-   )
-   (block
-    (set_local $0
-     (i32.const 0)
-    )
-    (loop $continue|0
-     (if
-      (i32.lt_s
-       (get_local $0)
-       (call $~lib/array/Array<String>#get:length
-        (get_local $2)
-       )
-      )
-      (block
-       (call $../gxctslib/datastream/DataStream#writeString
-        (get_local $1)
-        (call $~lib/array/Array<String>#__get
-         (get_local $2)
-         (get_local $0)
-        )
-       )
-       (set_local $0
-        (i32.add
-         (get_local $0)
-         (i32.const 1)
-        )
-       )
-       (br $continue|0)
-      )
-     )
-    )
-   )
-  )
- )
- (func $src/helloworld/GameOfLife#on_create (; 51 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (call $src/helloworld/GameOfLife#on_remove
-   (get_local $0)
-   (call $../gxctslib/actions/Remove#constructor
-    (i32.const 0)
-    (i64.load
-     (get_local $1)
-    )
-    (i64.load offset=8
-     (get_local $1)
-    )
-   )
-  )
-  (call $../gxctslib/utils/assert
-   (if (result i32)
-    (tee_local $0
-     (i32.ge_u
-      (i32.load offset=16
-       (get_local $1)
-      )
-      (i32.const 3)
-     )
-    )
-    (i32.le_u
-     (i32.load offset=16
-      (get_local $1)
-     )
-     (i32.const 100)
-    )
-    (get_local $0)
-   )
-   (i32.const 192)
-  )
-  (call $../gxctslib/utils/assert
-   (if (result i32)
-    (tee_local $0
-     (i32.ge_u
-      (i32.load offset=20
-       (get_local $1)
-      )
-      (i32.const 3)
-     )
-    )
-    (i32.le_u
-     (i32.load offset=20
-      (get_local $1)
-     )
-     (i32.const 100)
-    )
-    (get_local $0)
-   )
-   (i32.const 288)
-  )
-  (call $src/helloworld/Board.to_ds
-   (call $src/helloworld/Board.gen_random
-    (i64.load offset=8
-     (get_local $1)
-    )
-    (i32.load offset=16
-     (get_local $1)
-    )
-    (i32.load offset=20
-     (get_local $1)
-    )
-    (i32.load offset=24
-     (get_local $1)
-    )
-   )
-   (tee_local $0
-    (call $../gxctslib/datastream/DataStream#constructor
-     (i32.const 0)
-     (i32.load
-      (call $~lib/internal/typedarray/TypedArray<u8_u32>#constructor
-       (i32.const 0)
-       (i32.const 64000)
-      )
-     )
-     (i32.const 64000)
-    )
-   )
-  )
-  (drop
-   (call $../gxctslib/gxclib/env.db_store_i64
-    (i64.load
-     (get_local $1)
-    )
-    (call $../gxctslib/utils/N
-     (i32.const 176)
-    )
-    (i64.load
-     (get_local $1)
-    )
-    (i64.load offset=8
-     (get_local $1)
-    )
-    (i32.load
-     (get_local $0)
-    )
-    (i32.load offset=8
-     (get_local $0)
-    )
-   )
-  )
- )
- (func $../gxctslib/actions/Remove.from_ds (; 52 ;) (type $ii) (param $0 i32) (result i32)
-  (call $../gxctslib/actions/Remove#constructor
-   (i32.const 0)
-   (call $../gxctslib/datastream/DataStream#read<u64>
-    (get_local $0)
-   )
-   (call $../gxctslib/datastream/DataStream#read<u64>
-    (get_local $0)
-   )
-  )
- )
- (func $../gxctslib/actions/RemoveAll.from_ds (; 53 ;) (type $ii) (param $0 i32) (result i32)
-  (call $../gxctslib/gxclib/Contract#constructor
-   (i32.const 0)
-   (call $../gxctslib/datastream/DataStream#read<u64>
-    (get_local $0)
-   )
-  )
- )
- (func $src/helloworld/GameOfLife#on_remove_all (; 54 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (set_local $0
-   (call $../gxctslib/gxclib/env.db_lowerbound_i64
-    (i64.load
-     (get_local $0)
-    )
-    (i64.load
-     (get_local $1)
-    )
-    (call $../gxctslib/utils/N
-     (i32.const 176)
-    )
-    (i64.const 0)
-   )
-  )
-  (loop $continue|0
-   (if
-    (i32.ge_s
-     (get_local $0)
-     (i32.const 0)
-    )
-    (block
-     (set_local $1
-      (get_local $0)
-     )
-     (set_local $0
-      (call $../gxctslib/gxclib/env.db_next_i64
-       (get_local $0)
-       (i32.const 8)
-      )
-     )
-     (call $../gxctslib/gxclib/env.db_remove_i64
-      (get_local $1)
-     )
-     (br $continue|0)
-    )
-   )
-  )
- )
- (func $../gxctslib/datastream/DataStream#read<u8> (; 55 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#read<u8> (; 41 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (set_local $1
    (i32.load8_u
@@ -4198,7 +3525,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#readVarint32 (; 56 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#readVarint32 (; 42 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4241,7 +3568,51 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#readString (; 57 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/string/allocate (; 43 ;) (type $ii) (param $0 i32) (result i32)
+  (local $1 i32)
+  (if
+   (i32.eqz
+    (if (result i32)
+     (tee_local $1
+      (i32.gt_s
+       (get_local $0)
+       (i32.const 0)
+      )
+     )
+     (i32.le_s
+      (get_local $0)
+      (i32.const 536870910)
+     )
+     (get_local $1)
+    )
+   )
+   (block
+    (call $abort
+     (i32.const 0)
+     (i32.const 240)
+     (i32.const 20)
+     (i32.const 2)
+    )
+    (unreachable)
+   )
+  )
+  (i32.store
+   (tee_local $1
+    (call $~lib/allocator/arena/allocate_memory
+     (i32.add
+      (i32.shl
+       (get_local $0)
+       (i32.const 1)
+      )
+      (i32.const 4)
+     )
+    )
+   )
+   (get_local $0)
+  )
+  (get_local $1)
+ )
+ (func $../gxctslib/datastream/DataStream#readString (; 44 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4293,7 +3664,7 @@
   )
   (get_local $3)
  )
- (func $~lib/array/Array<String>#__set (; 58 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/Array<String>#__set (; 45 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (if
    (i32.ge_u
@@ -4318,7 +3689,7 @@
      (block
       (call $abort
        (i32.const 0)
-       (i32.const 256)
+       (i32.const 208)
        (i32.const 86)
        (i32.const 41)
       )
@@ -4360,7 +3731,7 @@
    (get_local $2)
   )
  )
- (func $src/helloworld/Board.from_ds (; 59 ;) (type $ii) (param $0 i32) (result i32)
+ (func $src/helloworld/Board.from_ds (; 46 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4437,99 +3808,515 @@
   )
   (get_local $0)
  )
- (func $src/helloworld/BoardSize#constructor (; 60 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
-  (local $3 i32)
-  (i32.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i32.store
-      (tee_local $3
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 8)
-       )
-      )
-      (i32.const 0)
-     )
-     (i32.store offset=4
-      (get_local $3)
-      (i32.const 0)
-     )
-     (tee_local $0
-      (get_local $3)
-     )
+ (func $../gxctslib/datastream/DataStream#store<u64> (; 47 ;) (type $iIv) (param $0 i32) (param $1 i64)
+  (i64.store
+   (i32.add
+    (i32.load
+     (get_local $0)
+    )
+    (i32.load offset=8
+     (get_local $0)
     )
    )
    (get_local $1)
   )
-  (i32.store offset=4
+  (i32.store offset=8
    (get_local $0)
-   (get_local $2)
+   (i32.add
+    (i32.load offset=8
+     (get_local $0)
+    )
+    (i32.const 8)
+   )
   )
-  (get_local $0)
  )
- (func $src/helloworld/Board#get_size (; 61 ;) (type $ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
-  (local $3 i32)
-  (call $../gxctslib/utils/assert
-   (i32.ge_s
-    (tee_local $3
-     (call $~lib/array/Array<String>#get:length
-      (i32.load offset=8
-       (get_local $0)
+ (func $../gxctslib/datastream/DataStream#store<u8> (; 48 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (i32.store8
+   (i32.add
+    (i32.load
+     (get_local $0)
+    )
+    (i32.load offset=8
+     (get_local $0)
+    )
+   )
+   (get_local $1)
+  )
+  (i32.store offset=8
+   (get_local $0)
+   (i32.add
+    (i32.load offset=8
+     (get_local $0)
+    )
+    (i32.const 1)
+   )
+  )
+ )
+ (func $../gxctslib/datastream/DataStream#writeVarint32 (; 49 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (loop $continue|0
+   (call $../gxctslib/datastream/DataStream#store<u8>
+    (get_local $0)
+    (i32.or
+     (i32.and
+      (get_local $1)
+      (i32.const 127)
+     )
+     (i32.shl
+      (select
+       (i32.const 1)
+       (i32.const 0)
+       (i32.gt_u
+        (tee_local $1
+         (i32.shr_u
+          (get_local $1)
+          (i32.const 7)
+         )
+        )
+        (i32.const 0)
+       )
       )
+      (i32.const 7)
      )
     )
-    (i32.const 3)
    )
-   (i32.const 548)
+   (br_if $continue|0
+    (get_local $1)
+   )
   )
-  (call $../gxctslib/utils/assert
-   (i32.ge_s
-    (tee_local $2
+ )
+ (func $~lib/array/Array<String>#__get (; 50 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (if (result i32)
+   (i32.lt_u
+    (get_local $1)
+    (i32.shr_u
      (i32.load
-      (call $~lib/array/Array<String>#__get
-       (i32.load offset=8
+      (tee_local $2
+       (i32.load
         (get_local $0)
        )
-       (i32.const 0)
+      )
+     )
+     (i32.const 2)
+    )
+   )
+   (i32.load offset=8
+    (i32.add
+     (get_local $2)
+     (i32.shl
+      (get_local $1)
+      (i32.const 2)
+     )
+    )
+   )
+   (unreachable)
+  )
+ )
+ (func $../gxctslib/datastream/DataStream#writeString (; 51 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (call $../gxctslib/datastream/DataStream#writeVarint32
+   (get_local $0)
+   (tee_local $2
+    (i32.load
+     (get_local $1)
+    )
+   )
+  )
+  (if
+   (i32.eqz
+    (get_local $2)
+   )
+   (return)
+  )
+  (set_local $1
+   (call $../gxctslib/utils/toUTF8Array
+    (get_local $1)
+   )
+  )
+  (call $~lib/memory/move_memory
+   (i32.add
+    (i32.load
+     (get_local $0)
+    )
+    (i32.load offset=8
+     (get_local $0)
+    )
+   )
+   (i32.add
+    (i32.load
+     (get_local $1)
+    )
+    (i32.const 8)
+   )
+   (i32.sub
+    (call $BoardSize#get:num_cols
+     (get_local $1)
+    )
+    (i32.const 1)
+   )
+  )
+  (i32.store offset=8
+   (get_local $0)
+   (i32.add
+    (i32.load offset=8
+     (get_local $0)
+    )
+    (i32.sub
+     (call $BoardSize#get:num_cols
+      (get_local $1)
+     )
+     (i32.const 1)
+    )
+   )
+  )
+ )
+ (func $src/helloworld/Board.to_ds (; 52 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (call $../gxctslib/datastream/DataStream#store<u64>
+   (get_local $1)
+   (i64.load
+    (get_local $0)
+   )
+  )
+  (call $../gxctslib/datastream/DataStream#writeVarint32
+   (get_local $1)
+   (call $BoardSize#get:num_cols
+    (tee_local $2
+     (i32.load offset=8
+      (get_local $0)
+     )
+    )
+   )
+  )
+  (if
+   (call $BoardSize#get:num_cols
+    (get_local $2)
+   )
+   (block
+    (set_local $0
+     (i32.const 0)
+    )
+    (loop $continue|0
+     (if
+      (i32.lt_s
+       (get_local $0)
+       (call $BoardSize#get:num_cols
+        (get_local $2)
+       )
+      )
+      (block
+       (call $../gxctslib/datastream/DataStream#writeString
+        (get_local $1)
+        (call $~lib/array/Array<String>#__get
+         (get_local $2)
+         (get_local $0)
+        )
+       )
+       (set_local $0
+        (i32.add
+         (get_local $0)
+         (i32.const 1)
+        )
+       )
+       (br $continue|0)
       )
      )
     )
-    (i32.const 3)
    )
-   (i32.const 548)
+  )
+ )
+ (func $~lib/array/Array<String>#constructor|trampoline (; 53 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+  (block $1of1
+   (block $0of1
+    (block $oob
+     (br_table $0of1 $1of1 $oob
+      (get_global $~argc)
+     )
+    )
+    (unreachable)
+   )
+   (set_local $1
+    (i32.const 0)
+   )
+  )
+  (call $~lib/array/Array<String>#constructor
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $src/helloworld/rnd (; 54 ;) (type $ii) (param $0 i32) (result i32)
+  (i32.rem_u
+   (i32.mul
+    (get_local $0)
+    (i32.const 16807)
+   )
+   (i32.const 2147483647)
+  )
+ )
+ (func $~lib/string/String#concat (; 55 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (if
+   (i32.eqz
+    (get_local $0)
+   )
+   (block
+    (call $abort
+     (i32.const 0)
+     (i32.const 24)
+     (i32.const 74)
+     (i32.const 4)
+    )
+    (unreachable)
+   )
+  )
+  (if
+   (i32.eqz
+    (get_local $1)
+   )
+   (set_local $1
+    (i32.const 308)
+   )
+  )
+  (if
+   (i32.eqz
+    (tee_local $2
+     (i32.add
+      (tee_local $3
+       (i32.load
+        (get_local $0)
+       )
+      )
+      (tee_local $4
+       (i32.load
+        (get_local $1)
+       )
+      )
+     )
+    )
+   )
+   (return
+    (i32.const 4)
+   )
+  )
+  (call $~lib/memory/move_memory
+   (i32.add
+    (tee_local $2
+     (call $~lib/internal/string/allocate
+      (get_local $2)
+     )
+    )
+    (i32.const 4)
+   )
+   (i32.add
+    (get_local $0)
+    (i32.const 4)
+   )
+   (i32.shl
+    (get_local $3)
+    (i32.const 1)
+   )
+  )
+  (call $~lib/memory/move_memory
+   (i32.add
+    (i32.add
+     (get_local $2)
+     (i32.const 4)
+    )
+    (i32.shl
+     (get_local $3)
+     (i32.const 1)
+    )
+   )
+   (i32.add
+    (get_local $1)
+    (i32.const 4)
+   )
+   (i32.shl
+    (get_local $4)
+    (i32.const 1)
+   )
+  )
+  (get_local $2)
+ )
+ (func $~lib/string/String.__concat (; 56 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+  (if
+   (i32.eqz
+    (get_local $0)
+   )
+   (set_local $0
+    (i32.const 308)
+   )
+  )
+  (call $~lib/string/String#concat
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $~lib/array/Array<String>#push (; 57 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (set_local $3
+   (i32.add
+    (tee_local $2
+     (i32.load offset=4
+      (get_local $0)
+     )
+    )
+    (i32.const 1)
+   )
+  )
+  (if
+   (i32.ge_u
+    (get_local $2)
+    (i32.shr_u
+     (i32.load
+      (tee_local $4
+       (i32.load
+        (get_local $0)
+       )
+      )
+     )
+     (i32.const 2)
+    )
+   )
+   (block
+    (if
+     (i32.ge_u
+      (get_local $2)
+      (i32.const 268435454)
+     )
+     (block
+      (call $abort
+       (i32.const 0)
+       (i32.const 208)
+       (i32.const 143)
+       (i32.const 42)
+      )
+      (unreachable)
+     )
+    )
+    (i32.store
+     (get_local $0)
+     (tee_local $4
+      (call $~lib/internal/arraybuffer/reallocUnsafe
+       (get_local $4)
+       (i32.shl
+        (get_local $3)
+        (i32.const 2)
+       )
+      )
+     )
+    )
+   )
+  )
+  (i32.store offset=4
+   (get_local $0)
+   (get_local $3)
+  )
+  (i32.store offset=8
+   (i32.add
+    (get_local $4)
+    (i32.shl
+     (get_local $2)
+     (i32.const 2)
+    )
+   )
+   (get_local $1)
+  )
+  (get_local $3)
+ )
+ (func $src/helloworld/Board.gen_random (; 58 ;) (type $Iiiii) (param $0 i64) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (i64.store
+   (tee_local $4
+    (call $~lib/allocator/arena/allocate_memory
+     (i32.const 12)
+    )
+   )
+   (i64.const 0)
+  )
+  (i32.store offset=8
+   (get_local $4)
+   (i32.const 0)
+  )
+  (i64.store
+   (get_local $4)
+   (get_local $0)
+  )
+  (set_global $~argc
+   (i32.const 0)
+  )
+  (i32.store offset=8
+   (get_local $4)
+   (call $~lib/array/Array<String>#constructor|trampoline
+    (i32.const 0)
+    (i32.const 0)
+   )
   )
   (loop $continue|0
    (if
-    (i32.lt_s
+    (i32.lt_u
+     (get_local $5)
      (get_local $1)
-     (call $~lib/array/Array<String>#get:length
-      (i32.load offset=8
-       (get_local $0)
-      )
-     )
     )
     (block
-     (call $../gxctslib/utils/assert
-      (i32.eq
-       (i32.load
-        (call $~lib/array/Array<String>#__get
-         (i32.load offset=8
-          (get_local $0)
-         )
-         (get_local $1)
-        )
-       )
-       (get_local $2)
-      )
-      (i32.const 548)
+     (set_local $6
+      (i32.const 4)
      )
-     (set_local $1
+     (set_local $7
+      (i32.const 0)
+     )
+     (loop $continue|1
+      (if
+       (i32.lt_u
+        (get_local $7)
+        (get_local $2)
+       )
+       (block
+        (set_local $6
+         (call $~lib/string/String.__concat
+          (get_local $6)
+          (select
+           (i32.const 292)
+           (i32.const 300)
+           (i32.and
+            (tee_local $3
+             (call $src/helloworld/rnd
+              (get_local $3)
+             )
+            )
+            (i32.const 1)
+           )
+          )
+         )
+        )
+        (set_local $7
+         (i32.add
+          (get_local $7)
+          (i32.const 1)
+         )
+        )
+        (br $continue|1)
+       )
+      )
+     )
+     (drop
+      (call $~lib/array/Array<String>#push
+       (i32.load offset=8
+        (get_local $4)
+       )
+       (get_local $6)
+      )
+     )
+     (set_local $5
       (i32.add
-       (get_local $1)
+       (get_local $5)
        (i32.const 1)
       )
      )
@@ -4537,13 +4324,9 @@
     )
    )
   )
-  (call $src/helloworld/BoardSize#constructor
-   (i32.const 0)
-   (get_local $3)
-   (get_local $2)
-  )
+  (get_local $4)
  )
- (func $~lib/string/String#charAt (; 62 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charAt (; 59 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (if
    (i32.eqz
@@ -4588,7 +4371,7 @@
   )
   (get_local $2)
  )
- (func $~lib/memory/compare_memory (; 63 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/memory/compare_memory (; 60 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (if
    (i32.eq
     (get_local $0)
@@ -4648,7 +4431,7 @@
    (i32.const 0)
   )
  )
- (func $~lib/string/String.__eq (; 64 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.__eq (; 61 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (if
    (i32.eq
@@ -4707,7 +4490,7 @@
    )
   )
  )
- (func $~lib/string/String.__ne (; 65 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.__ne (; 62 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (i32.eqz
    (call $~lib/string/String.__eq
     (get_local $0)
@@ -4715,7 +4498,7 @@
    )
   )
  )
- (func $src/helloworld/Board.alive (; 66 ;) (type $iiiiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
+ (func $src/helloworld/Board.alive (; 63 ;) (type $iiiiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
   (if (result i32)
    (call $~lib/string/String.__ne
     (call $~lib/string/String#charAt
@@ -4753,304 +4536,84 @@
       )
      )
     )
-    (i32.const 360)
+    (i32.const 300)
    )
    (i32.const 1)
    (i32.const 0)
   )
  )
- (func $src/helloworld/GameOfLife#on_step (; 67 ;) (type $iiv) (param $0 i32) (param $1 i32)
+ (func $Board#get:rows (; 64 ;) (type $ii) (param $0 i32) (result i32)
+  (i32.load offset=8
+   (get_local $0)
+  )
+ )
+ (func $Board#set:rows (; 65 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (i32.store offset=8
+   (get_local $0)
+   (get_local $1)
+  )
+ )
+ (func $src/helloworld/Board#get_size (; 66 ;) (type $ii) (param $0 i32) (result i32)
+  (local $1 i32)
   (local $2 i32)
   (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
-  (local $6 i32)
-  (local $7 i32)
-  (local $8 i32)
-  (local $9 i32)
   (call $../gxctslib/utils/assert
    (i32.ge_s
-    (tee_local $7
-     (call $../gxctslib/gxclib/env.db_find_i64
-      (i64.load
+    (tee_local $3
+     (call $BoardSize#get:num_cols
+      (i32.load offset=8
        (get_local $0)
       )
-      (i64.load
-       (get_local $1)
-      )
-      (call $../gxctslib/utils/N
-       (i32.const 176)
-      )
-      (i64.load offset=8
-       (get_local $1)
-      )
      )
     )
-    (i32.const 0)
+    (i32.const 3)
    )
-   (i32.const 484)
+   (i32.const 320)
   )
   (call $../gxctslib/utils/assert
    (i32.ge_s
-    (tee_local $6
-     (call $../gxctslib/gxclib/env.db_get_i64
-      (get_local $7)
-      (i32.const 0)
-      (i32.const 0)
-     )
-    )
-    (i32.const 0)
-   )
-   (i32.const 516)
-  )
-  (call $../gxctslib/utils/assert
-   (i32.ge_s
-    (tee_local $6
-     (call $../gxctslib/gxclib/env.db_get_i64
-      (get_local $7)
-      (i32.load
-       (tee_local $0
-        (call $~lib/internal/typedarray/TypedArray<u8_u32>#constructor
-         (i32.const 0)
-         (get_local $6)
-        )
-       )
-      )
-      (get_local $6)
-     )
-    )
-    (i32.const 0)
-   )
-   (i32.const 516)
-  )
-  (set_local $4
-   (call $src/helloworld/Board#get_size
-    (tee_local $3
-     (call $src/helloworld/Board.from_ds
-      (call $../gxctslib/datastream/DataStream#constructor
-       (i32.const 0)
-       (i32.load
+    (tee_local $2
+     (i32.load
+      (call $~lib/array/Array<String>#__get
+       (i32.load offset=8
         (get_local $0)
        )
-       (get_local $6)
+       (i32.const 0)
       )
      )
     )
+    (i32.const 3)
    )
-  )
-  (i64.store
-   (tee_local $5
-    (call $~lib/allocator/arena/allocate_memory
-     (i32.const 12)
-    )
-   )
-   (i64.const 0)
-  )
-  (i32.store offset=8
-   (get_local $5)
-   (i32.const 0)
-  )
-  (i64.store
-   (get_local $5)
-   (i64.load
-    (get_local $3)
-   )
-  )
-  (i32.store offset=8
-   (get_local $5)
-   (call $~lib/array/Array<String>#constructor
-    (i32.const 0)
-    (call $~lib/array/Array<String>#get:length
-     (i32.load offset=8
-      (get_local $3)
-     )
-    )
-   )
-  )
-  (set_local $0
-   (i32.const 0)
+   (i32.const 320)
   )
   (loop $continue|0
    (if
     (i32.lt_s
-     (get_local $0)
-     (i32.load
-      (get_local $4)
+     (get_local $1)
+     (call $BoardSize#get:num_cols
+      (i32.load offset=8
+       (get_local $0)
+      )
      )
     )
     (block
-     (call $~lib/array/Array<String>#__set
-      (i32.load offset=8
-       (get_local $5)
-      )
-      (get_local $0)
-      (i32.const 4)
-     )
-     (set_local $2
-      (i32.const 0)
-     )
-     (loop $continue|1
-      (if
-       (i32.lt_s
-        (get_local $2)
-        (i32.load offset=4
-         (get_local $4)
+     (call $../gxctslib/utils/assert
+      (i32.eq
+       (i32.load
+        (call $~lib/array/Array<String>#__get
+         (i32.load offset=8
+          (get_local $0)
+         )
+         (get_local $1)
         )
        )
-       (block
-        (if
-         (if (result i32)
-          (tee_local $8
-           (i32.eq
-            (tee_local $9
-             (i32.add
-              (i32.add
-               (i32.add
-                (i32.add
-                 (i32.add
-                  (i32.add
-                   (i32.add
-                    (call $src/helloworld/Board.alive
-                     (get_local $3)
-                     (get_local $4)
-                     (get_local $0)
-                     (get_local $2)
-                     (i32.const -1)
-                     (i32.const -1)
-                    )
-                    (call $src/helloworld/Board.alive
-                     (get_local $3)
-                     (get_local $4)
-                     (get_local $0)
-                     (get_local $2)
-                     (i32.const -1)
-                     (i32.const 0)
-                    )
-                   )
-                   (call $src/helloworld/Board.alive
-                    (get_local $3)
-                    (get_local $4)
-                    (get_local $0)
-                    (get_local $2)
-                    (i32.const -1)
-                    (i32.const 1)
-                   )
-                  )
-                  (call $src/helloworld/Board.alive
-                   (get_local $3)
-                   (get_local $4)
-                   (get_local $0)
-                   (get_local $2)
-                   (i32.const 0)
-                   (i32.const -1)
-                  )
-                 )
-                 (call $src/helloworld/Board.alive
-                  (get_local $3)
-                  (get_local $4)
-                  (get_local $0)
-                  (get_local $2)
-                  (i32.const 0)
-                  (i32.const 1)
-                 )
-                )
-                (call $src/helloworld/Board.alive
-                 (get_local $3)
-                 (get_local $4)
-                 (get_local $0)
-                 (get_local $2)
-                 (i32.const 1)
-                 (i32.const -1)
-                )
-               )
-               (call $src/helloworld/Board.alive
-                (get_local $3)
-                (get_local $4)
-                (get_local $0)
-                (get_local $2)
-                (i32.const 1)
-                (i32.const 0)
-               )
-              )
-              (call $src/helloworld/Board.alive
-               (get_local $3)
-               (get_local $4)
-               (get_local $0)
-               (get_local $2)
-               (i32.const 1)
-               (i32.const 1)
-              )
-             )
-            )
-            (i32.const 3)
-           )
-          )
-          (get_local $8)
-          (if (result i32)
-           (tee_local $8
-            (i32.ne
-             (call $src/helloworld/Board.alive
-              (get_local $3)
-              (get_local $4)
-              (get_local $0)
-              (get_local $2)
-              (i32.const 0)
-              (i32.const 0)
-             )
-             (i32.const 0)
-            )
-           )
-           (i32.eq
-            (get_local $9)
-            (i32.const 2)
-           )
-           (get_local $8)
-          )
-         )
-         (call $~lib/array/Array<String>#__set
-          (i32.load offset=8
-           (get_local $5)
-          )
-          (get_local $0)
-          (call $~lib/string/String.__concat
-           (call $~lib/array/Array<String>#__get
-            (i32.load offset=8
-             (get_local $5)
-            )
-            (get_local $0)
-           )
-           (i32.const 352)
-          )
-         )
-         (call $~lib/array/Array<String>#__set
-          (i32.load offset=8
-           (get_local $5)
-          )
-          (get_local $0)
-          (call $~lib/string/String.__concat
-           (call $~lib/array/Array<String>#__get
-            (i32.load offset=8
-             (get_local $5)
-            )
-            (get_local $0)
-           )
-           (i32.const 360)
-          )
-         )
-        )
-        (set_local $2
-         (i32.add
-          (get_local $2)
-          (i32.const 1)
-         )
-        )
-        (br $continue|1)
-       )
+       (get_local $2)
       )
+      (i32.const 320)
      )
-     (set_local $0
+     (set_local $1
       (i32.add
-       (get_local $0)
+       (get_local $1)
        (i32.const 1)
       )
      )
@@ -5058,165 +4621,13 @@
     )
    )
   )
-  (call $src/helloworld/Board.to_ds
-   (get_local $5)
-   (tee_local $0
-    (call $../gxctslib/datastream/DataStream#constructor
-     (i32.const 0)
-     (i32.load
-      (call $~lib/internal/typedarray/TypedArray<u8_u32>#constructor
-       (i32.const 0)
-       (i32.const 64000)
-      )
-     )
-     (get_local $6)
-    )
-   )
-  )
-  (call $../gxctslib/gxclib/env.db_update_i64
-   (get_local $7)
-   (i64.load
-    (get_local $1)
-   )
-   (i32.load
-    (get_local $0)
-   )
-   (i32.load offset=8
-    (get_local $0)
-   )
-  )
- )
- (func $src/helloworld/GameOfLife#apply (; 68 ;) (type $iIIv) (param $0 i32) (param $1 i64) (param $2 i64)
-  (if
-   (i64.eq
-    (get_local $2)
-    (call $../gxctslib/utils/N
-     (i32.const 8)
-    )
-   )
-   (call $src/helloworld/GameOfLife#on_create
-    (get_local $0)
-    (call $../gxctslib/actions/Create.from_ds
-     (call $../gxctslib/gxclib/Contract#get_ds
-      (get_local $0)
-     )
-    )
-   )
-   (if
-    (i64.eq
-     (get_local $2)
-     (call $../gxctslib/utils/N
-      (i32.const 432)
-     )
-    )
-    (call $src/helloworld/GameOfLife#on_remove
-     (get_local $0)
-     (call $../gxctslib/actions/Remove.from_ds
-      (call $../gxctslib/gxclib/Contract#get_ds
-       (get_local $0)
-      )
-     )
-    )
-    (if
-     (i64.eq
-      (get_local $2)
-      (call $../gxctslib/utils/N
-       (i32.const 448)
-      )
-     )
-     (call $src/helloworld/GameOfLife#on_remove_all
-      (get_local $0)
-      (call $../gxctslib/actions/RemoveAll.from_ds
-       (call $../gxctslib/gxclib/Contract#get_ds
-        (get_local $0)
-       )
-      )
-     )
-     (if
-      (i64.eq
-       (get_local $2)
-       (call $../gxctslib/utils/N
-        (i32.const 472)
-       )
-      )
-      (call $src/helloworld/GameOfLife#on_step
-       (get_local $0)
-       (call $../gxctslib/actions/Remove.from_ds
-        (call $../gxctslib/gxclib/Contract#get_ds
-         (get_local $0)
-        )
-       )
-      )
-      (call $../gxctslib/utils/assert
-       (i32.const 0)
-       (i32.const 584)
-      )
-     )
-    )
-   )
-  )
- )
- (func $src/helloworld/apply (; 69 ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
-  (call $src/helloworld/GameOfLife#apply
-   (call $../gxctslib/gxclib/Contract#constructor
-    (i32.const 0)
-    (get_local $0)
-   )
-   (get_local $1)
+  (call $src/helloworld/BoardSize#constructor
+   (i32.const 0)
+   (get_local $3)
    (get_local $2)
   )
  )
- (func $Contract#get:receiver (; 70 ;) (type $iI) (param $0 i32) (result i64)
-  (i64.load
-   (get_local $0)
-  )
- )
- (func $Contract#set:receiver (; 71 ;) (type $iIv) (param $0 i32) (param $1 i64)
-  (i64.store
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $GameOfLife#get:dummy (; 72 ;) (type $iI) (param $0 i32) (result i64)
-  (i64.load offset=8
-   (get_local $0)
-  )
- )
- (func $GameOfLife#set:dummy (; 73 ;) (type $iIv) (param $0 i32) (param $1 i64)
-  (i64.store offset=8
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $BoardSize#get:num_rows (; 74 ;) (type $ii) (param $0 i32) (result i32)
-  (i32.load
-   (get_local $0)
-  )
- )
- (func $BoardSize#set:num_rows (; 75 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (i32.store
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $BoardSize#set:num_cols (; 76 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (i32.store offset=4
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $Board#get:rows (; 77 ;) (type $ii) (param $0 i32) (result i32)
-  (i32.load offset=8
-   (get_local $0)
-  )
- )
- (func $Board#set:rows (; 78 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (i32.store offset=8
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $start (; 79 ;) (type $v)
+ (func $start (; 67 ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
    (i32.and
     (i32.add

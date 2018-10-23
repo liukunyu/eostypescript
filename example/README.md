@@ -1,74 +1,25 @@
-# GAME OF LIFE for EOS in TypeScript
-
- Step by step guide on how to execute our first TypeScript proof of concept, where we modified the version of Game of Life that Conway proposed by Fleming on https://github.com/tbfleming/eos-game-of-life. 
- 
- You will be able to see the implementations in TypeScript of:
-
-
-- Use of apply and execution of actions
-- Deserialization of contract entry parameters
-- Use of require_auth
-- Read and Inserts in tables
-- Using same abi file between c ++ and TypeScript
-
-
-## 1 Prerequisites - Access to EOS Testnet / Node
-
-- option 1) Configure your Node using EOS Tutorial **https://github.com/EOSIO/eos/wiki/Local-Environment**
-
-- option 2) Join **http://eosaurora.io** Testnet, ask for an account & support.
-
-
-- note:  in case you build your own node remember to change token from SYS to EOS on CMakeLists.txt
-
-## 2 Clone and install AssemblyScript
-
-```bash
-git clone https://github.com/EOSArgentina/assemblyscript.git
-cd assemblyscript
-npm install
-npm link
+#####编译合约
 ```
-- For this test, you would need to create a custom version of AssemblyScript, we have already modified it for you on our Github, the only difference is the a mod to prevent import abort function which is not available in EOS.
-
-## 3 Clone GameofLife-ts
-
-```bash
-git clone https://github.com/EOSArgentina/gameoflife-ts
-cd gameoflife-ts
-```
-
-## 4 Prepare EOSIO Chain Context 
-
-```bash
-./scripts/01-prepare.sh
-```
-- review this script provided as example and update with your actual context, eg your wallet pass, change cleos to a remote http like cleos  -u http\:// remote, change your keys, etc.
-- this script should be only executed once, during setup, is setting eosio.token and eosio.system contracts, creating eos token, and creating gameoflife account.
-
-
-
-## 5 Compile
-
-```bash
+1.
+cd到gxctypescript/example目录下
+cd /Users/sky/code/gxctypescript/example
+2.
 ./scripts/02-compile.sh
+3.将当前目录下的helloworld目录拷贝到gxchain安装目录下
+cp -r helloworld ~/gxb_install
+4。删除helloworld/helloworld.wast文件中的abort相关的代码(包括调用的地方)
+5.编译wast到wasm
+./bin/wat2wasm helloworld/helloworld.wast -o helloworld/helloworld.wasm
+
 ```
-- underthehood this compiles using asc (assembly script), then execute sed to hack wast to allow eosio to understand this wast file.
 
-## 6 Deploy Contract
-```bash
-./scripts/03-deploy.sh
+#####部署合约
 ```
-- uploading contract to the testnet
-
-## 7 Call TypeScript Action
-```bash
-./scripts/04-play.sh
+deploy_contract h11 nathan 0 0 /Users/sky/gxb_install/helloworld GXC true
 ```
-- if all worked well you are going to see animated game of life results.
-- review each script, if you have any question don't hesitate to ask us for support on http://eosaurora.io -> telegram.
 
+#####调用合约
+```
+call_contract nathan h11 null create "{\"user\":\"1\",\"\game\":\"2\", \"num_rows\":3,\"num_cols\":4,\"seed\":5}" GXC true
+```
 
-![](./assets/eg0.png)
-
-![](./assets/eg1.png)
