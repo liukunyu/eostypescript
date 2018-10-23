@@ -14,6 +14,7 @@
  (type $Iv (func (param i64)))
  (type $I (func (result i64)))
  (type $IIIIv (func (param i64 i64 i64 i64)))
+ (type $IIIIiii (func (param i64 i64 i64 i64 i32 i32) (result i32)))
  (type $v (func))
  (import "env" "abort" (func $abort (param i32 i32 i32 i32)))
  (import "env" "action_data_size" (func $../gxctslib/gxclib/env.action_data_size (result i32)))
@@ -23,21 +24,24 @@
  (import "env" "get_action_asset_amount" (func $../gxctslib/gxclib/env.get_action_asset_amount (result i64)))
  (import "env" "get_trx_sender" (func $../gxctslib/gxclib/env.get_trx_sender (result i64)))
  (import "env" "withdraw_asset" (func $../gxctslib/gxclib/env.withdraw_asset (param i64 i64 i64 i64)))
+ (import "env" "db_store_i64" (func $../gxctslib/gxclib/env.db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
  (import "env" "graphene_assert" (func $../gxctslib/gxclib/env.graphene_assert (param i32 i32)))
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
  (global $~lib/allocator/arena/offset (mut i32) (i32.const 0))
- (global $HEAP_BASE i32 (i32.const 240))
+ (global $HEAP_BASE i32 (i32.const 284))
  (memory $0 1)
  (data (i32.const 8) "\06\00\00\00c\00r\00e\00a\00t\00e")
  (data (i32.const 24) "\0e\00\00\00~\00l\00i\00b\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s")
  (data (i32.const 56) "\1b\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00t\00y\00p\00e\00d\00a\00r\00r\00a\00y\00.\00t\00s")
  (data (i32.const 116) "\1c\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
- (data (i32.const 176) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
+ (data (i32.const 176) "\0d\00\00\00m\00y\00 \00f\00i\00r\00s\00t\00 \00b\00o\00o\00k")
  (data (i32.const 208) "\0d\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
+ (data (i32.const 240) "\04\00\00\00b\00o\00o\00k")
+ (data (i32.const 252) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
  (export "apply" (func $src/helloworld/apply))
  (export "memory" (memory $0))
  (start $start)
- (func $~lib/allocator/arena/allocate_memory (; 9 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/allocator/arena/allocate_memory (; 10 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -126,7 +130,7 @@
   )
   (i32.const 0)
  )
- (func $../gxctslib/gxclib/Contract#constructor (; 10 ;) (type $iIi) (param $0 i32) (param $1 i64) (result i32)
+ (func $../gxctslib/gxclib/Contract#constructor (; 11 ;) (type $iIi) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   (i64.store
    (if (result i32)
@@ -150,7 +154,7 @@
   )
   (get_local $0)
  )
- (func $~lib/string/String#charCodeAt (; 11 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charCodeAt (; 12 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (if
    (i32.eqz
     (get_local $0)
@@ -186,7 +190,7 @@
    )
   )
  )
- (func $../gxctslib/utils/char_to_symbol (; 12 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/char_to_symbol (; 13 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (if
    (if (result i32)
@@ -236,7 +240,7 @@
   )
   (i64.const 0)
  )
- (func $../gxctslib/utils/N (; 13 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/N (; 14 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (local $2 i64)
   (local $3 i32)
@@ -318,7 +322,7 @@
   )
   (get_local $2)
  )
- (func $~lib/internal/arraybuffer/computeSize (; 14 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/computeSize (; 15 ;) (type $ii) (param $0 i32) (result i32)
   (i32.shl
    (i32.const 1)
    (i32.sub
@@ -332,7 +336,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/allocUnsafe (; 15 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/allocUnsafe (; 16 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (if
    (i32.gt_u
@@ -361,7 +365,7 @@
   )
   (get_local $1)
  )
- (func $~lib/memory/set_memory (; 16 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/set_memory (; 17 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i64)
   (local $4 i32)
   (if
@@ -697,7 +701,7 @@
    )
   )
  )
- (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 17 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 18 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (if
    (i32.gt_u
@@ -762,7 +766,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/datastream/DataStream#constructor (; 18 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#constructor (; 19 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (i32.store
    (if (result i32)
@@ -802,7 +806,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/gxclib/Contract#get_ds (; 19 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/gxclib/Contract#get_ds (; 20 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (drop
    (call $../gxctslib/gxclib/env.read_action_data
@@ -827,7 +831,7 @@
    (get_local $0)
   )
  )
- (func $../gxctslib/datastream/DataStream#read<u64> (; 20 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/datastream/DataStream#read<u64> (; 21 ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i64)
   (set_local $1
    (i64.load
@@ -852,7 +856,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#read<u32> (; 21 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#read<u32> (; 22 ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (set_local $1
    (i32.load
@@ -877,7 +881,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/actions/Create#constructor (; 22 ;) (type $iIIiiii) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
+ (func $../gxctslib/actions/Create#constructor (; 23 ;) (type $iIIiiii) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
   (local $6 i32)
   (i64.store
    (if (result i32)
@@ -933,7 +937,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/actions/Create.from_ds (; 23 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/actions/Create.from_ds (; 24 ;) (type $ii) (param $0 i32) (result i32)
   (call $../gxctslib/actions/Create#constructor
    (i32.const 0)
    (call $../gxctslib/datastream/DataStream#read<u64>
@@ -950,54 +954,6 @@
    )
    (call $../gxctslib/datastream/DataStream#read<u32>
     (get_local $0)
-   )
-  )
- )
- (func $src/helloworld/HelloWorld#on_create (; 24 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (call $../gxctslib/gxclib/env.printi
-   (i64.load
-    (get_local $0)
-   )
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (i64.extend_u/i32
-    (i32.load offset=16
-     (get_local $1)
-    )
-   )
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (i64.extend_u/i32
-    (i32.load offset=20
-     (get_local $1)
-    )
-   )
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (i64.extend_u/i32
-    (i32.load offset=24
-     (get_local $1)
-    )
-   )
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_action_asset_id)
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_action_asset_amount)
-  )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_trx_sender)
-  )
-  (call $../gxctslib/gxclib/env.withdraw_asset
-   (i64.load
-    (get_local $0)
-   )
-   (call $../gxctslib/gxclib/env.get_trx_sender)
-   (call $../gxctslib/gxclib/env.get_action_asset_id)
-   (i64.div_s
-    (call $../gxctslib/gxclib/env.get_action_asset_amount)
-    (i64.const 2)
    )
   )
  )
@@ -3309,7 +3265,75 @@
    (i32.const 8)
   )
  )
- (func $../gxctslib/utils/assert (; 32 ;) (type $iiv) (param $0 i32) (param $1 i32)
+ (func $src/helloworld/HelloWorld#on_create (; 32 ;) (type $iiv) (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (call $../gxctslib/gxclib/env.printi
+   (i64.load
+    (get_local $0)
+   )
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=16
+     (get_local $1)
+    )
+   )
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=20
+     (get_local $1)
+    )
+   )
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (i64.extend_u/i32
+    (i32.load offset=24
+     (get_local $1)
+    )
+   )
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (call $../gxctslib/gxclib/env.get_action_asset_id)
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (call $../gxctslib/gxclib/env.get_action_asset_amount)
+  )
+  (call $../gxctslib/gxclib/env.printi
+   (call $../gxctslib/gxclib/env.get_trx_sender)
+  )
+  (call $../gxctslib/gxclib/env.withdraw_asset
+   (i64.load
+    (get_local $0)
+   )
+   (call $../gxctslib/gxclib/env.get_trx_sender)
+   (call $../gxctslib/gxclib/env.get_action_asset_id)
+   (i64.div_s
+    (call $../gxctslib/gxclib/env.get_action_asset_amount)
+    (i64.const 2)
+   )
+  )
+  (set_local $2
+   (call $../gxctslib/utils/string2cstr
+    (i32.const 176)
+   )
+  )
+  (drop
+   (call $../gxctslib/gxclib/env.db_store_i64
+    (i64.load
+     (get_local $0)
+    )
+    (call $../gxctslib/utils/N
+     (i32.const 240)
+    )
+    (i64.const 0)
+    (i64.const 1)
+    (get_local $2)
+    (i32.const 13)
+   )
+  )
+ )
+ (func $../gxctslib/utils/assert (; 33 ;) (type $iiv) (param $0 i32) (param $1 i32)
   (if
    (i32.eqz
     (i32.and
@@ -3325,7 +3349,7 @@
    )
   )
  )
- (func $src/helloworld/HelloWorld#apply (; 33 ;) (type $iIIv) (param $0 i32) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/HelloWorld#apply (; 34 ;) (type $iIIv) (param $0 i32) (param $1 i64) (param $2 i64)
   (if
    (i64.eq
     (get_local $2)
@@ -3343,11 +3367,11 @@
    )
    (call $../gxctslib/utils/assert
     (i32.const 0)
-    (i32.const 176)
+    (i32.const 252)
    )
   )
  )
- (func $src/helloworld/apply (; 34 ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/apply (; 35 ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
   (call $src/helloworld/HelloWorld#apply
    (call $../gxctslib/gxclib/Contract#constructor
     (i32.const 0)
@@ -3357,7 +3381,7 @@
    (get_local $2)
   )
  )
- (func $start (; 35 ;) (type $v)
+ (func $start (; 36 ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
    (i32.and
     (i32.add

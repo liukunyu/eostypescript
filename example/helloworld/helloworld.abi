@@ -36,6 +36,13 @@
         {"name":"game", "type":"name"},
         {"name":"rows", "type":"string[]"}
       ]
+    },{
+      "name": "book",
+      "base": "",
+      "fields": [
+        {"name":"id", "type":"uint64"},
+        {"name":"data", "type":"string[]"}
+      ]
     }
   ],
   "actions": [{
@@ -59,6 +66,13 @@
       "index_type": "i64",
       "key_names" : ["game"],
       "key_types" : ["name"]
-    }
+    },
+	{
+	  "name": "book",
+	  "type": "book",
+	  "index_type": "i64",
+	  "key_names": ["id"],
+	  "key_types": ["u64"]
+	}
   ]
 }
