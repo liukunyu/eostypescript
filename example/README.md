@@ -1,4 +1,4 @@
-#####编译合约
+##### 编译合约
 ```
 1.
 cd到gxctypescript/example目录下
@@ -13,12 +13,12 @@ cp -r helloworld ~/gxb_install
 
 ```
 
-#####部署合约
+##### 部署合约
 ```
 deploy_contract h11 nathan 0 0 /Users/sky/gxb_install/helloworld GXC true
 ```
 
-#####调用合约
+##### 调用合约
 ```
 call_contract nathan h11 null create "{\"user\":\"1\",\"\game\":\"2\", \"num_rows\":3,\"num_cols\":4,\"seed\":5}" GXC true
 ```
