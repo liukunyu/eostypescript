@@ -14,7 +14,6 @@
  (type $Iv (func (param i64)))
  (type $I (func (result i64)))
  (type $IIIIv (func (param i64 i64 i64 i64)))
- (type $iIv (func (param i32 i64)))
  (type $v (func))
  (import "env" "abort" (func $abort (param i32 i32 i32 i32)))
  (import "env" "action_data_size" (func $../gxctslib/gxclib/env.action_data_size (result i32)))
@@ -35,13 +34,7 @@
  (data (i32.const 116) "\1c\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
  (data (i32.const 176) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
  (data (i32.const 208) "\0d\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (export "HelloWorld#on_create" (func $src/helloworld/HelloWorld#on_create))
- (export "HelloWorld#apply" (func $src/helloworld/HelloWorld#apply))
  (export "apply" (func $src/helloworld/apply))
- (export "Contract#get:receiver" (func $Contract#get:receiver))
- (export "Contract#set:receiver" (func $Contract#set:receiver))
- (export "HelloWorld#get:dummy" (func $HelloWorld#get:dummy))
- (export "HelloWorld#set:dummy" (func $HelloWorld#set:dummy))
  (export "memory" (memory $0))
  (start $start)
  (func $~lib/allocator/arena/allocate_memory (; 9 ;) (type $ii) (param $0 i32) (result i32)
@@ -3364,29 +3357,7 @@
    (get_local $2)
   )
  )
- (func $Contract#get:receiver (; 35 ;) (type $iI) (param $0 i32) (result i64)
-  (i64.load
-   (get_local $0)
-  )
- )
- (func $Contract#set:receiver (; 36 ;) (type $iIv) (param $0 i32) (param $1 i64)
-  (i64.store
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $HelloWorld#get:dummy (; 37 ;) (type $iI) (param $0 i32) (result i64)
-  (i64.load offset=8
-   (get_local $0)
-  )
- )
- (func $HelloWorld#set:dummy (; 38 ;) (type $iIv) (param $0 i32) (param $1 i64)
-  (i64.store offset=8
-   (get_local $0)
-   (get_local $1)
-  )
- )
- (func $start (; 39 ;) (type $v)
+ (func $start (; 35 ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
    (i32.and
     (i32.add

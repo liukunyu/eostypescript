@@ -41,7 +41,7 @@
   "actions": [{
       "name": "create",
       "type": "create",
-      "payable": false
+      "payable": true
     },{
       "name": "remove",
       "type": "remove"

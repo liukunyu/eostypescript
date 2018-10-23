@@ -1,9 +1,8 @@
 import "allocator/arena";
 
-import { env as GXC, ISerializable, Contract } from "../../gxctslib/gxclib";
-import { DataStream } from "../../gxctslib/datastream";
-import { printstr, N, assert } from "../../gxctslib/utils";
-import { Create, Remove, RemoveAll, Step } from "../../gxctslib/actions";
+import { env as GXC, Contract } from "../../gxctslib/gxclib";
+import { N, assert } from "../../gxctslib/utils";
+import { Create } from "../../gxctslib/actions";
 
 export function apply(receiver: u64, code: u64, action: u64): void {
   var gol: HelloWorld = new HelloWorld(receiver);
@@ -11,10 +10,7 @@ export function apply(receiver: u64, code: u64, action: u64): void {
 }
 
 /***************** HELLOWORLD CLASS ***********************/
-export class HelloWorld extends Contract {
-
-  dummy: u64;
-
+class HelloWorld extends Contract {
   // create action
   on_create(args: Create): void {
     GXC.printi(this.receiver);
