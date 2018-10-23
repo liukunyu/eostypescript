@@ -1,4 +1,4 @@
-# EOS TYPESCRIPT Library
+# GXC TYPESCRIPT Library
 
 Current features:
 
