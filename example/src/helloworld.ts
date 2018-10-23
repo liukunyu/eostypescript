@@ -32,7 +32,7 @@ class HelloWorld extends Contract {
     //test storage create/delete/query/modify
     //db_store_i64(scope : u64, table : u64, payer: u64, id : u64,  data : u32, len : u32) : i32;
     let buffer_address = string2cstr("my first book");
-    let book_idx_1 = GXC.db_store_i64(this.receiver, N("book"), 0, 1, buffer_address, 13);
+    let book_idx_1 = GXC.db_store_i64(this.receiver, N("book"), 0, 1, buffer_address, 13);//TODO FIXME get_table_objects failed
     
 //    declare function db_find_i64(code: u64, scope:u64, table:u64, id:u64) : i32;
 //    declare function db_remove_i64(iterator : i32) : void;
