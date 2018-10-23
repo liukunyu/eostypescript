@@ -1,3 +1,3 @@
-asc ./src/gameoflife.ts -o ./gameoflife-ts/gameoflife-ts.wast --optimize --validate 
-cd ./gameoflife-ts/
-sed -i.bak 's/,/_/g' gameoflife-ts.wast && rm gameoflife-ts.wast.bak
+asc ./src/helloworld.ts -o ./helloworld/helloworld.wast --optimize --validate 
+cd ./helloworld/
+sed -i.bak 's/,/_/g' helloworld.wast && rm helloworld.wast.bak

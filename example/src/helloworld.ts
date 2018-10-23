@@ -1,9 +1,9 @@
 import "allocator/arena";
 
-import { env as GXC, ISerializable, Contract } from "../../src/gxclib";
-import { DataStream } from "../../src/datastream";
-import { printstr, N, assert } from "../../src/utils";
-import { Create, Remove, RemoveAll, Step } from "../../src/actions";
+import { env as GXC, ISerializable, Contract } from "../../gxctslib/gxclib";
+import { DataStream } from "../../gxctslib/datastream";
+import { printstr, N, assert } from "../../gxctslib/utils";
+import { Create, Remove, RemoveAll, Step } from "../../gxctslib/actions";
 
 export function apply(receiver: u64, code: u64, action: u64): void {
   var gol: GameOfLife = new GameOfLife(receiver);

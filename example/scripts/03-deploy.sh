@@ -1,1 +1,0 @@
-cleos set contract gameoflifets $PWD/gameoflife-ts -p gameoflifets
