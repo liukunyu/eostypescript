@@ -1,4 +1,4 @@
-import {env as EOS} from "./eoslib"
+import {env as GXC} from "./gxclib"
 
 export function toUTF8Array(str:string) : u8[] {
     var utf8 : u8[] = [];
@@ -39,12 +39,12 @@ export function string2cstr(str: string) : u32 {
 }
 
 export function printstr(str: string) : void {
-  EOS.prints(string2cstr(str));
+  GXC.prints(string2cstr(str));
 }
 
 export function assert(condition: bool, msg : string) : void {
   if(condition == false) {
-    EOS.eosio_assert(0, string2cstr(msg));
+    GXC.graphene_assert(0, string2cstr(msg));
   }
 }
 

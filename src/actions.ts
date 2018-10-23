@@ -1,4 +1,4 @@
-import {env as EOS, ISerializable} from "./eoslib"
+import {env as GXC, ISerializable} from "./gxclib"
 import {DataStream} from "./datastream"
 
 export class Step implements ISerializable {

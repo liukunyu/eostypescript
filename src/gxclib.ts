@@ -1,6 +1,5 @@
 import {DataStream} from "./datastream"
 
-// EOS intrinsics
 export namespace env {
   declare function read_action_data( buffer: usize , len: u32 ) : u32;
   declare function action_data_size() : u32;
@@ -9,8 +8,7 @@ export namespace env {
   declare function prints_l(cstr : usize, len: u32) : void;
   declare function prints(cstr : usize) : void;
   declare function printn(name : u64) : void;
-  declare function eosio_assert(condition : u32, cstr: u32) : void;
-  declare function require_auth(user : u64) : void;
+  declare function graphene_assert(condition : u32, cstr: u32) : void;
   declare function db_find_i64(code: u64, scope:u64, table:u64, id:u64) : i32;
   declare function db_remove_i64(iterator : i32) : void;
   declare function db_store_i64(scope : u64, table : u64, payer: u64, id : u64,  data : u32, len : u32) : i32;

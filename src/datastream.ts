@@ -94,34 +94,3 @@ export class DataStream {
 
 };
 
-
-// export class SizeStream {
-
-//   pos   : u32;
-
-//   constructor() {
-//     this.pos    = 0;
-//   }
-
-//   writeVarint32(value : u32): void {
-//     do {
-//       let b : u8  = <u8>value & <u8>0x7f;
-//       value >>= 7;
-//       b |= ((value > 0 ? 1 : 0) << 7);
-//       store<u8>(b);
-//     } while( value );
-//   }
-
-//   store<T>(value : T) : void {
-//     this.pos += sizeof<T>();
-//   }
-
-//   writeString(str : string) : void {
-//     let len : u32 = str.length;
-//     writeVarint32(len);
-//     if(len == 0) return;
-//     let cstr = string2cstr(str);
-//     this.pos += (cstr.length-1);
-//   }
-
-// };
