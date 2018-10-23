@@ -16,6 +16,10 @@ export namespace env {
   declare function db_next_i64(iterator : i32, primary: i32) : i32;
   declare function db_get_i64(iterator : i32, data : u32, len : u32) : i32;
   declare function db_update_i64(iterator : i32, payer : u64, data : u32, len : u32) : void;
+  declare function withdraw_asset(from : u64, to : u64, asset_id : u64, amount : u64) : void;
+  declare function get_action_asset_id() : u64;
+  declare function get_action_asset_amount() : i64;
+  declare function get_trx_sender() : i64;
 }
 
 export interface ISerializable<T> {

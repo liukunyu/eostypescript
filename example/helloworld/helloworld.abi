@@ -40,7 +40,8 @@
   ],
   "actions": [{
       "name": "create",
-      "type": "create"
+      "type": "create",
+      "payable": false
     },{
       "name": "remove",
       "type": "remove"
