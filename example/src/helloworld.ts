@@ -13,6 +13,7 @@ import {
     
 import { string2cstr, N, assert } from "../../gxctslib/utils";
 import { Create } from "../../gxctslib/actions";
+import { Database } from "../../gxctslib/database";
 
 export function apply(receiver: u64, code: u64, action: u64): void {
   var gol: HelloWorld = new HelloWorld(receiver);
@@ -25,6 +26,7 @@ class HelloWorld extends Contract {
   @action
   on_create(args: Create): void {
     //test receiver
+
     printi(this.receiver);
     
     //test parameters
@@ -45,11 +47,20 @@ class HelloWorld extends Contract {
     let buffer_address = string2cstr("my first book");
     prints(buffer_address);
     let book_idx_1 = db_store_i64(this.receiver, N("book"), 0, 1, buffer_address, 13);//TODO FIXME get_table_objects failed
+    
+
+  }
+  
+  test() : void {
+      let d: Database<i32> = new Database(this.receiver, this.receiver, N("book"));
+  d.Get(1);
   }
 
   apply(code: u64, action: u64): void {
     if (action == N("create")) {
       this.on_create(Create.from_ds(this.get_ds()));
+    } else if (action == N("test")) {
+        this.test();
     } else {
       assert(false, "unknown action");
     }

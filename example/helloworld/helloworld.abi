@@ -23,6 +23,11 @@
         {"name":"seed", "type":"uint32"}
       ]
     },{
+      "name": "test",
+      "base": "",
+      "fields": [
+      ]
+    },{
       "name": "step",
       "base": "",
       "fields": [
@@ -50,8 +55,8 @@
       "type": "create",
       "payable": true
     },{
-      "name": "remove",
-      "type": "remove"
+      "name": "test",
+      "type": "test"
     },{
       "name": "removeall",
       "type": "removeall"

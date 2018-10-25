@@ -5,12 +5,14 @@
  (type $iii (func (param i32 i32) (result i32)))
  (type $i (func (result i32)))
  (type $iiiv (func (param i32 i32 i32)))
+ (type $iiii (func (param i32 i32 i32) (result i32)))
  (type $iiv (func (param i32 i32)))
  (type $Iv (func (param i64)))
  (type $I (func (result i64)))
  (type $IIIIv (func (param i64 i64 i64 i64)))
  (type $iv (func (param i32)))
  (type $IIIIiii (func (param i64 i64 i64 i64 i32 i32) (result i32)))
+ (type $IIIIi (func (param i64 i64 i64 i64) (result i32)))
  (type $v (func))
  (type $FUNCSIG$ij (func (param i64) (result i32)))
  (type $FUNCSIG$vii (func (param i32 i32)))
@@ -18,6 +20,8 @@
  (type $FUNCSIG$iii (func (param i32 i32) (result i32)))
  (type $FUNCSIG$i (func (result i32)))
  (type $FUNCSIG$ijjiii (func (param i64 i64 i32 i32 i32) (result i32)))
+ (type $FUNCSIG$ijjj (func (param i64 i64 i64) (result i32)))
+ (type $FUNCSIG$vi (func (param i32)))
  (type $FUNCSIG$v (func))
  (type $FUNCSIG$vij (func (param i32 i64)))
  (memory $0 1)
@@ -25,7 +29,9 @@
  (data (i32.const 24) "\0d\00\00\00m\00y\00 \00f\00i\00r\00s\00t\00 \00b\00o\00o\00k")
  (data (i32.const 64) "8")
  (data (i32.const 72) "\04\00\00\00b\00o\00o\00k")
- (data (i32.const 88) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
+ (data (i32.const 88) "\04\00\00\00t\00e\00s\00t")
+ (data (i32.const 104) "\0d\00\00\000\000\000\000\000\000\000\000\000\000\000\000\000")
+ (data (i32.const 136) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
  (table 1 anyfunc)
  (elem (i32.const 0) $null)
  (import "env" "action_data_size" (func $../gxctslib/env/action_data_size (result i32)))
@@ -37,6 +43,8 @@
  (import "env" "withdraw_asset" (func $../gxctslib/env/withdraw_asset (param i64 i64 i64 i64)))
  (import "env" "prints" (func $../gxctslib/env/prints (param i32)))
  (import "env" "db_store_i64" (func $../gxctslib/env/db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
+ (import "env" "db_find_i64" (func $../gxctslib/env/db_find_i64 (param i64 i64 i64 i64) (result i32)))
+ (import "env" "db_get_i64" (func $../gxctslib/env/db_get_i64 (param i32 i32 i32) (result i32)))
  (import "env" "graphene_assert" (func $../gxctslib/env/graphene_assert (param i32 i32)))
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
  (global $~lib/allocator/arena/offset (mut i32) (i32.const 0))
@@ -44,7 +52,7 @@
  (export "table" (table $0))
  (export "apply" (func $src/helloworld/apply))
  (start $start)
- (func $~lib/allocator/arena/__memory_allocate (; 10 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/allocator/arena/__memory_allocate (; 12 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -134,12 +142,12 @@
   )
   (get_local $2)
  )
- (func $~lib/memory/memory.allocate (; 11 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/memory/memory.allocate (; 13 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (call $~lib/allocator/arena/__memory_allocate
    (get_local $0)
   )
  )
- (func $../gxctslib/env/Contract#constructor (; 12 ;) (; has Stack IR ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $../gxctslib/env/Contract#constructor (; 14 ;) (; has Stack IR ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   (local $1 i32)
   (i64.store
    (tee_local $1
@@ -155,7 +163,7 @@
   )
   (get_local $1)
  )
- (func $~lib/string/String#charCodeAt (; 13 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charCodeAt (; 15 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (if
    (i32.eqz
     (get_local $0)
@@ -183,7 +191,7 @@
    )
   )
  )
- (func $../gxctslib/utils/char_to_symbol (; 14 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/char_to_symbol (; 16 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (if
    (if (result i32)
@@ -233,7 +241,7 @@
   )
   (i64.const 0)
  )
- (func $../gxctslib/utils/N (; 15 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/N (; 17 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (local $2 i64)
   (local $3 i32)
@@ -317,7 +325,7 @@
   )
   (get_local $2)
  )
- (func $~lib/internal/arraybuffer/computeSize (; 16 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/computeSize (; 18 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (i32.shl
    (i32.const 1)
    (i32.sub
@@ -331,7 +339,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/allocateUnsafe (; 17 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/allocateUnsafe (; 19 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (if
    (i32.gt_u
@@ -352,7 +360,7 @@
   )
   (get_local $1)
  )
- (func $~lib/internal/memory/memset (; 18 ;) (; has Stack IR ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/internal/memory/memset (; 20 ;) (; has Stack IR ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (if
    (i32.eqz
@@ -666,7 +674,7 @@
    )
   )
  )
- (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 19 ;) (; has Stack IR ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 21 ;) (; has Stack IR ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (if
@@ -719,7 +727,7 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/datastream/DataStream#constructor (; 20 ;) (; has Stack IR ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#constructor (; 22 ;) (; has Stack IR ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (i32.store
    (tee_local $2
@@ -751,7 +759,7 @@
   )
   (get_local $2)
  )
- (func $../gxctslib/env/Contract#get_ds (; 21 ;) (; has Stack IR ;) (type $FUNCSIG$i) (result i32)
+ (func $../gxctslib/env/Contract#get_ds (; 23 ;) (; has Stack IR ;) (type $FUNCSIG$i) (result i32)
   (local $0 i32)
   (local $1 i32)
   (drop
@@ -775,7 +783,7 @@
    (get_local $0)
   )
  )
- (func $../gxctslib/datastream/DataStream#read<u64> (; 22 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/datastream/DataStream#read<u64> (; 24 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i64)
   (set_local $1
    (i64.load
@@ -800,7 +808,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#read<u32> (; 23 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#read<u32> (; 25 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (set_local $1
    (i32.load
@@ -825,7 +833,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/actions/Create#constructor (; 24 ;) (; has Stack IR ;) (type $FUNCSIG$ijjiii) (param $0 i64) (param $1 i64) (param $2 i32) (param $3 i32) (param $4 i32) (result i32)
+ (func $../gxctslib/actions/Create#constructor (; 26 ;) (; has Stack IR ;) (type $FUNCSIG$ijjiii) (param $0 i64) (param $1 i64) (param $2 i32) (param $3 i32) (param $4 i32) (result i32)
   (local $5 i32)
   (i64.store
    (tee_local $5
@@ -873,7 +881,7 @@
   )
   (get_local $5)
  )
- (func $../gxctslib/actions/Create.from_ds (; 25 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/actions/Create.from_ds (; 27 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (call $../gxctslib/actions/Create#constructor
    (call $../gxctslib/datastream/DataStream#read<u64>
     (get_local $0)
@@ -892,7 +900,7 @@
    )
   )
  )
- (func $~lib/internal/memory/memcpy (; 26 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/internal/memory/memcpy (; 28 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (loop $continue|0
@@ -2468,7 +2476,7 @@
    )
   )
  )
- (func $~lib/internal/memory/memmove (; 27 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/internal/memory/memmove (; 29 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (if
    (i32.eq
@@ -2755,7 +2763,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/reallocateUnsafe (; 28 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/arraybuffer/reallocateUnsafe (; 30 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (if
@@ -2861,7 +2869,7 @@
   )
   (get_local $0)
  )
- (func $~lib/array/Array<u8>#push (; 29 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#push (; 31 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2919,7 +2927,7 @@
   )
   (get_local $4)
  )
- (func $../gxctslib/utils/toUTF8Array (; 30 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/toUTF8Array (; 32 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -3102,7 +3110,7 @@
   )
   (get_local $2)
  )
- (func $../gxctslib/utils/string2cstr (; 31 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/string2cstr (; 33 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (i32.add
    (i32.load
     (call $../gxctslib/utils/toUTF8Array
@@ -3112,7 +3120,7 @@
    (i32.const 8)
   )
  )
- (func $src/helloworld/HelloWorld#on_create (; 32 ;) (; has Stack IR ;) (type $iiv) (param $0 i32) (param $1 i32)
+ (func $src/helloworld/HelloWorld#on_create (; 34 ;) (; has Stack IR ;) (type $iiv) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (call $../gxctslib/env/printi
    (i64.load
@@ -3182,15 +3190,116 @@
    )
   )
  )
- (func $../gxctslib/utils/assert (; 33 ;) (; has Stack IR ;) (type $FUNCSIG$v)
-  (call $../gxctslib/env/graphene_assert
-   (i32.const 0)
+ (func $../gxctslib/database/Database<i32>#constructor (; 35 ;) (; has Stack IR ;) (type $FUNCSIG$ijjj) (param $0 i64) (param $1 i64) (param $2 i64) (result i32)
+  (local $3 i32)
+  (i64.store
+   (tee_local $3
+    (call $~lib/memory/memory.allocate
+     (i32.const 24)
+    )
+   )
+   (i64.const 0)
+  )
+  (i64.store offset=8
+   (get_local $3)
+   (i64.const 0)
+  )
+  (i64.store offset=16
+   (get_local $3)
+   (i64.const 0)
+  )
+  (i64.store
+   (get_local $3)
+   (get_local $0)
+  )
+  (i64.store offset=8
+   (get_local $3)
+   (get_local $1)
+  )
+  (i64.store offset=16
+   (get_local $3)
+   (get_local $2)
+  )
+  (get_local $3)
+ )
+ (func $../gxctslib/database/Database<i32>#Get (; 36 ;) (; has Stack IR ;) (type $FUNCSIG$vi) (param $0 i32)
+  (local $1 i32)
+  (call $../gxctslib/env/printi
+   (i64.load
+    (get_local $0)
+   )
+  )
+  (call $../gxctslib/env/printi
+   (i64.load offset=8
+    (get_local $0)
+   )
+  )
+  (call $../gxctslib/env/printi
+   (i64.load offset=16
+    (get_local $0)
+   )
+  )
+  (call $../gxctslib/env/printi
+   (i64.const 1)
+  )
+  (call $../gxctslib/env/printi
+   (i64.extend_s/i32
+    (tee_local $1
+     (call $../gxctslib/env/db_find_i64
+      (i64.load
+       (get_local $0)
+      )
+      (i64.load offset=8
+       (get_local $0)
+      )
+      (i64.load offset=16
+       (get_local $0)
+      )
+      (i64.const 1)
+     )
+    )
+   )
+  )
+  (set_local $0
    (call $../gxctslib/utils/string2cstr
-    (i32.const 88)
+    (i32.const 104)
+   )
+  )
+  (drop
+   (call $../gxctslib/env/db_get_i64
+    (get_local $1)
+    (get_local $0)
+    (i32.const 12)
+   )
+  )
+  (call $../gxctslib/env/prints
+   (get_local $0)
+  )
+ )
+ (func $src/helloworld/HelloWorld#test (; 37 ;) (; has Stack IR ;) (type $iv) (param $0 i32)
+  (call $../gxctslib/database/Database<i32>#Get
+   (call $../gxctslib/database/Database<i32>#constructor
+    (i64.load
+     (get_local $0)
+    )
+    (i64.load
+     (get_local $0)
+    )
+    (call $../gxctslib/utils/N
+     (i32.const 72)
+    )
    )
   )
  )
- (func $src/helloworld/HelloWorld#apply (; 34 ;) (; has Stack IR ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $../gxctslib/utils/assert (; 38 ;) (; has Stack IR ;) (type $FUNCSIG$v)
+  (call $../gxctslib/env/graphene_assert
+   (i32.const 0)
+   (call $../gxctslib/utils/string2cstr
+    (i32.const 136)
+   )
+  )
+ )
+ (func $src/helloworld/HelloWorld#apply (; 39 ;) (; has Stack IR ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (if
    (i64.eq
     (get_local $1)
@@ -3204,10 +3313,21 @@
      (call $../gxctslib/env/Contract#get_ds)
     )
    )
-   (call $../gxctslib/utils/assert)
+   (if
+    (i64.eq
+     (get_local $1)
+     (call $../gxctslib/utils/N
+      (i32.const 88)
+     )
+    )
+    (call $src/helloworld/HelloWorld#test
+     (get_local $0)
+    )
+    (call $../gxctslib/utils/assert)
+   )
   )
  )
- (func $src/helloworld/apply (; 35 ;) (; has Stack IR ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/apply (; 40 ;) (; has Stack IR ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
   (call $src/helloworld/HelloWorld#apply
    (call $../gxctslib/env/Contract#constructor
     (get_local $0)
@@ -3215,15 +3335,15 @@
    (get_local $2)
   )
  )
- (func $start (; 36 ;) (; has Stack IR ;) (type $v)
+ (func $start (; 41 ;) (; has Stack IR ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
-   (i32.const 120)
+   (i32.const 168)
   )
   (set_global $~lib/allocator/arena/offset
    (get_global $~lib/allocator/arena/startOffset)
   )
  )
- (func $null (; 37 ;) (; has Stack IR ;) (type $v)
+ (func $null (; 42 ;) (; has Stack IR ;) (type $v)
   (nop)
  )
 )
