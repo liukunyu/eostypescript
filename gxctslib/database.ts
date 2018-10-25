@@ -1,26 +1,13 @@
-import {env as GXC, ISerializable} from "./env"
+import {db_get_i64, db_find_i64, ISerializable} from "./env"
 import {DataStream} from "./datastream"
 
 export class Database<T> implements ISerializable {
     
     private tableName: u64
-    private items: Array[]
     
     constructor(tableName: u64) {
         this.tableName = tableName;
     }
-
-    class Item extends T {
-        pk: u64
-        key_count: u32
-        keys: Array[]
-    
-        constructor(o: T) {
-            
-        }
-    }
-    
-    
     
     public function Get(key: u64) : T {
     }
