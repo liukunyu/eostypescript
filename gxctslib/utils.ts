@@ -1,4 +1,8 @@
-import {env as GXC} from "./gxclib"
+import {
+    action_data_size,
+    read_action_data,
+    graphene_assert
+} from "./env"
 
 export function toUTF8Array(str:string) : u8[] {
     var utf8 : u8[] = [];
@@ -39,12 +43,12 @@ export function string2cstr(str: string) : u32 {
 }
 
 export function printstr(str: string) : void {
-  GXC.prints(string2cstr(str));
+  prints(string2cstr(str));
 }
 
 export function assert(condition: bool, msg : string) : void {
   if(condition == false) {
-    GXC.graphene_assert(0, string2cstr(msg));
+    graphene_assert(0, string2cstr(msg));
   }
 }
 

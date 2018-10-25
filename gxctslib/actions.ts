@@ -1,30 +1,6 @@
-import {env as GXC, ISerializable} from "./gxclib"
 import {DataStream} from "./datastream"
 
-export class Step implements ISerializable {
-  
-  constructor(user : u64, game : u64) {
-    this.user     = user;
-    this.game     = game;
-  }
-
-  static from_ds(ds : DataStream) : Step {
-    return new Step(
-      ds.read<u64>(),
-      ds.read<u64>()
-    );
-  }
-
-  static to_ds(instance : Step, ds : DataStream) : void {
-
-  }
-
-  user     : u64;
-  game     : u64;
-}
-
-
-export class Create implements ISerializable {
+export class Create {
   
   constructor(user : u64, game : u64, num_rows : u32, num_cols : u32, seed : u32) {
     this.user     = user;
@@ -53,41 +29,4 @@ export class Create implements ISerializable {
   num_rows : u32;
   num_cols : u32;
   seed     : u32;
-}
-
-export class Remove implements ISerializable {
-
-  constructor(user : u64, game : u64) {
-    this.user = user;
-    this.game = game;
-  }
-
-  static from_ds(ds : DataStream) : Remove {
-    return new Remove(
-      ds.read<u64>(),
-      ds.read<u64>()
-    )
-  }
-
-  static to_ds(instance : Remove, ds : DataStream) : void {}
-
-  user     : u64;
-  game     : u64;
-}
-
-export class RemoveAll implements ISerializable {
-
-  constructor(user : u64) {
-    this.user = user;
-  }
-
-  static from_ds(ds : DataStream) : RemoveAll {
-    return new RemoveAll(
-      ds.read<u64>()
-    )
-  }
-
-  static to_ds(instance : Remove, ds : DataStream) : void {}
-
-  user     : u64;
 }

@@ -1,8 +1,7 @@
 import {
   HEADER_SIZE,
   MAX_LENGTH,
-  EMPTY,
-  allocate,
+  allocateUnsafe,
   isWhiteSpaceOrLineTerminator,
   CharCode,
   parse
@@ -68,7 +67,7 @@ export class DataStream {
   readString() : string {
     var len = this.readVarint32();
     if(len == 0) return "";
-    let s = allocate(len);
+    let s = allocateUnsafe(len);
     
     var i: u32 = 0;
     while(i<len) {

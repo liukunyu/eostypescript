@@ -1,173 +1,166 @@
 (module
- (type $i (func (result i32)))
  (type $IIIv (func (param i64 i64 i64)))
- (type $iIi (func (param i32 i64) (result i32)))
  (type $ii (func (param i32) (result i32)))
- (type $iIIv (func (param i32 i64 i64)))
  (type $iI (func (param i32) (result i64)))
  (type $iii (func (param i32 i32) (result i32)))
- (type $iiiiv (func (param i32 i32 i32 i32)))
+ (type $i (func (result i32)))
  (type $iiiv (func (param i32 i32 i32)))
- (type $iiii (func (param i32 i32 i32) (result i32)))
- (type $iIIiiii (func (param i32 i64 i64 i32 i32 i32) (result i32)))
  (type $iiv (func (param i32 i32)))
  (type $Iv (func (param i64)))
  (type $I (func (result i64)))
  (type $IIIIv (func (param i64 i64 i64 i64)))
+ (type $iv (func (param i32)))
  (type $IIIIiii (func (param i64 i64 i64 i64 i32 i32) (result i32)))
  (type $v (func))
- (import "env" "abort" (func $abort (param i32 i32 i32 i32)))
- (import "env" "action_data_size" (func $../gxctslib/gxclib/env.action_data_size (result i32)))
- (import "env" "read_action_data" (func $../gxctslib/gxclib/env.read_action_data (param i32 i32) (result i32)))
- (import "env" "printi" (func $../gxctslib/gxclib/env.printi (param i64)))
- (import "env" "get_action_asset_id" (func $../gxctslib/gxclib/env.get_action_asset_id (result i64)))
- (import "env" "get_action_asset_amount" (func $../gxctslib/gxclib/env.get_action_asset_amount (result i64)))
- (import "env" "get_trx_sender" (func $../gxctslib/gxclib/env.get_trx_sender (result i64)))
- (import "env" "withdraw_asset" (func $../gxctslib/gxclib/env.withdraw_asset (param i64 i64 i64 i64)))
- (import "env" "db_store_i64" (func $../gxctslib/gxclib/env.db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
- (import "env" "graphene_assert" (func $../gxctslib/gxclib/env.graphene_assert (param i32 i32)))
- (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
- (global $~lib/allocator/arena/offset (mut i32) (i32.const 0))
- (global $HEAP_BASE i32 (i32.const 284))
+ (type $FUNCSIG$ij (func (param i64) (result i32)))
+ (type $FUNCSIG$vii (func (param i32 i32)))
+ (type $FUNCSIG$ii (func (param i32) (result i32)))
+ (type $FUNCSIG$iii (func (param i32 i32) (result i32)))
+ (type $FUNCSIG$i (func (result i32)))
+ (type $FUNCSIG$ijjiii (func (param i64 i64 i32 i32 i32) (result i32)))
+ (type $FUNCSIG$v (func))
+ (type $FUNCSIG$vij (func (param i32 i64)))
  (memory $0 1)
  (data (i32.const 8) "\06\00\00\00c\00r\00e\00a\00t\00e")
- (data (i32.const 24) "\0e\00\00\00~\00l\00i\00b\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s")
- (data (i32.const 56) "\1b\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00t\00y\00p\00e\00d\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 116) "\1c\00\00\00~\00l\00i\00b\00/\00i\00n\00t\00e\00r\00n\00a\00l\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s")
- (data (i32.const 176) "\0d\00\00\00m\00y\00 \00f\00i\00r\00s\00t\00 \00b\00o\00o\00k")
- (data (i32.const 208) "\0d\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00.\00t\00s")
- (data (i32.const 240) "\04\00\00\00b\00o\00o\00k")
- (data (i32.const 252) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
- (export "apply" (func $src/helloworld/apply))
+ (data (i32.const 24) "\0d\00\00\00m\00y\00 \00f\00i\00r\00s\00t\00 \00b\00o\00o\00k")
+ (data (i32.const 64) "8")
+ (data (i32.const 72) "\04\00\00\00b\00o\00o\00k")
+ (data (i32.const 88) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
+ (table 1 anyfunc)
+ (elem (i32.const 0) $null)
+ (import "env" "action_data_size" (func $../gxctslib/env/action_data_size (result i32)))
+ (import "env" "read_action_data" (func $../gxctslib/env/read_action_data (param i32 i32) (result i32)))
+ (import "env" "printi" (func $../gxctslib/env/printi (param i64)))
+ (import "env" "get_action_asset_id" (func $../gxctslib/env/get_action_asset_id (result i64)))
+ (import "env" "get_action_asset_amount" (func $../gxctslib/env/get_action_asset_amount (result i64)))
+ (import "env" "get_trx_sender" (func $../gxctslib/env/get_trx_sender (result i64)))
+ (import "env" "withdraw_asset" (func $../gxctslib/env/withdraw_asset (param i64 i64 i64 i64)))
+ (import "env" "prints" (func $../gxctslib/env/prints (param i32)))
+ (import "env" "db_store_i64" (func $../gxctslib/env/db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
+ (import "env" "graphene_assert" (func $../gxctslib/env/graphene_assert (param i32 i32)))
+ (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
+ (global $~lib/allocator/arena/offset (mut i32) (i32.const 0))
  (export "memory" (memory $0))
+ (export "table" (table $0))
+ (export "apply" (func $src/helloworld/apply))
  (start $start)
- (func $~lib/allocator/arena/allocate_memory (; 10 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/allocator/arena/__memory_allocate (; 10 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (if
-   (get_local $0)
-   (block
+   (i32.gt_u
+    (get_local $0)
+    (i32.const 1073741824)
+   )
+   (unreachable)
+  )
+  (if
+   (i32.gt_u
+    (tee_local $3
+     (i32.and
+      (i32.add
+       (i32.add
+        (tee_local $2
+         (get_global $~lib/allocator/arena/offset)
+        )
+        (select
+         (get_local $0)
+         (tee_local $1
+          (i32.const 1)
+         )
+         (i32.gt_u
+          (get_local $0)
+          (get_local $1)
+         )
+        )
+       )
+       (i32.const 7)
+      )
+      (i32.const -8)
+     )
+    )
+    (i32.shl
+     (tee_local $1
+      (current_memory)
+     )
+     (i32.const 16)
+    )
+   )
+   (if
+    (i32.lt_s
+     (grow_memory
+      (select
+       (get_local $1)
+       (tee_local $4
+        (tee_local $0
+         (i32.shr_u
+          (i32.and
+           (i32.add
+            (i32.sub
+             (get_local $3)
+             (get_local $2)
+            )
+            (i32.const 65535)
+           )
+           (i32.const -65536)
+          )
+          (i32.const 16)
+         )
+        )
+       )
+       (i32.gt_s
+        (get_local $1)
+        (get_local $4)
+       )
+      )
+     )
+     (i32.const 0)
+    )
     (if
-     (i32.gt_u
-      (get_local $0)
-      (i32.const 1073741824)
+     (i32.lt_s
+      (grow_memory
+       (get_local $0)
+      )
+      (i32.const 0)
      )
      (unreachable)
     )
-    (if
-     (i32.gt_u
-      (tee_local $2
-       (i32.and
-        (i32.add
-         (i32.add
-          (tee_local $1
-           (get_global $~lib/allocator/arena/offset)
-          )
-          (get_local $0)
-         )
-         (i32.const 7)
-        )
-        (i32.const -8)
-       )
-      )
-      (i32.shl
-       (tee_local $0
-        (current_memory)
-       )
-       (i32.const 16)
-      )
-     )
-     (if
-      (i32.lt_s
-       (grow_memory
-        (select
-         (get_local $0)
-         (tee_local $4
-          (tee_local $3
-           (i32.shr_u
-            (i32.and
-             (i32.add
-              (i32.sub
-               (get_local $2)
-               (get_local $1)
-              )
-              (i32.const 65535)
-             )
-             (i32.const -65536)
-            )
-            (i32.const 16)
-           )
-          )
-         )
-         (i32.gt_s
-          (get_local $0)
-          (get_local $4)
-         )
-        )
-       )
-       (i32.const 0)
-      )
-      (if
-       (i32.lt_s
-        (grow_memory
-         (get_local $3)
-        )
-        (i32.const 0)
-       )
-       (unreachable)
-      )
-     )
-    )
-    (set_global $~lib/allocator/arena/offset
-     (get_local $2)
-    )
-    (return
-     (get_local $1)
-    )
    )
   )
-  (i32.const 0)
+  (set_global $~lib/allocator/arena/offset
+   (get_local $3)
+  )
+  (get_local $2)
  )
- (func $../gxctslib/gxclib/Contract#constructor (; 11 ;) (type $iIi) (param $0 i32) (param $1 i64) (result i32)
-  (local $2 i32)
+ (func $~lib/memory/memory.allocate (; 11 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+  (call $~lib/allocator/arena/__memory_allocate
+   (get_local $0)
+  )
+ )
+ (func $../gxctslib/env/Contract#constructor (; 12 ;) (; has Stack IR ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+  (local $1 i32)
   (i64.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i64.store
-      (tee_local $2
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 8)
-       )
-      )
-      (i64.const 0)
-     )
-     (tee_local $0
-      (get_local $2)
-     )
+   (tee_local $1
+    (call $~lib/memory/memory.allocate
+     (i32.const 8)
     )
    )
-   (get_local $1)
+   (i64.const 0)
   )
-  (get_local $0)
+  (i64.store
+   (get_local $1)
+   (get_local $0)
+  )
+  (get_local $1)
  )
- (func $~lib/string/String#charCodeAt (; 12 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charCodeAt (; 13 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (if
    (i32.eqz
     (get_local $0)
    )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 24)
-     (i32.const 37)
-     (i32.const 4)
-    )
-    (unreachable)
-   )
+   (unreachable)
   )
   (if
    (i32.ge_u
@@ -190,7 +183,7 @@
    )
   )
  )
- (func $../gxctslib/utils/char_to_symbol (; 13 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/char_to_symbol (; 14 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (if
    (if (result i32)
@@ -207,7 +200,7 @@
     (get_local $1)
    )
    (return
-    (i64.extend_u/i32
+    (i64.extend_s/i32
      (i32.add
       (get_local $0)
       (i32.const -91)
@@ -230,7 +223,7 @@
     (get_local $1)
    )
    (return
-    (i64.extend_u/i32
+    (i64.extend_s/i32
      (i32.add
       (get_local $0)
       (i32.const -48)
@@ -240,64 +233,66 @@
   )
   (i64.const 0)
  )
- (func $../gxctslib/utils/N (; 14 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/utils/N (; 15 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i32)
   (local $2 i64)
   (local $3 i32)
-  (loop $continue|0
-   (if
-    (if (result i32)
-     (tee_local $3
-      (i32.lt_s
-       (get_local $1)
-       (i32.load
-        (get_local $0)
+  (block $break|0
+   (loop $repeat|0
+    (br_if $break|0
+     (i32.eqz
+      (if (result i32)
+       (tee_local $3
+        (i32.lt_s
+         (get_local $1)
+         (i32.load
+          (get_local $0)
+         )
+        )
        )
+       (i32.lt_s
+        (get_local $1)
+        (i32.const 12)
+       )
+       (get_local $3)
       )
      )
-     (i32.lt_s
-      (get_local $1)
-      (i32.const 12)
-     )
-     (get_local $3)
     )
-    (block
-     (set_local $2
-      (i64.or
-       (get_local $2)
-       (i64.shl
-        (i64.and
-         (call $../gxctslib/utils/char_to_symbol
-          (call $~lib/string/String#charCodeAt
-           (get_local $0)
+    (set_local $2
+     (i64.or
+      (get_local $2)
+      (i64.shl
+       (i64.and
+        (call $../gxctslib/utils/char_to_symbol
+         (call $~lib/string/String#charCodeAt
+          (get_local $0)
+          (get_local $1)
+         )
+        )
+        (i64.const 31)
+       )
+       (i64.sub
+        (i64.const 64)
+        (i64.mul
+         (i64.extend_s/i32
+          (i32.add
            (get_local $1)
+           (i32.const 1)
           )
          )
-         (i64.const 31)
-        )
-        (i64.sub
-         (i64.const 64)
-         (i64.mul
-          (i64.extend_u/i32
-           (i32.add
-            (get_local $1)
-            (i32.const 1)
-           )
-          )
-          (i64.const 5)
-         )
+         (i64.const 5)
         )
        )
       )
      )
-     (set_local $1
-      (i32.add
-       (get_local $1)
-       (i32.const 1)
-      )
-     )
-     (br $continue|0)
     )
+    (set_local $1
+     (i32.add
+      (get_local $1)
+      (i32.const 1)
+     )
+    )
+    (br $repeat|0)
    )
   )
   (if
@@ -322,7 +317,7 @@
   )
   (get_local $2)
  )
- (func $~lib/internal/arraybuffer/computeSize (; 15 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/computeSize (; 16 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (i32.shl
    (i32.const 1)
    (i32.sub
@@ -336,26 +331,18 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/allocUnsafe (; 16 ;) (type $ii) (param $0 i32) (result i32)
+ (func $~lib/internal/arraybuffer/allocateUnsafe (; 17 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (if
    (i32.gt_u
     (get_local $0)
     (i32.const 1073741816)
    )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 116)
-     (i32.const 22)
-     (i32.const 2)
-    )
-    (unreachable)
-   )
+   (unreachable)
   )
   (i32.store
    (tee_local $1
-    (call $~lib/allocator/arena/allocate_memory
+    (call $~lib/allocator/arena/__memory_allocate
      (call $~lib/internal/arraybuffer/computeSize
       (get_local $0)
      )
@@ -365,32 +352,31 @@
   )
   (get_local $1)
  )
- (func $~lib/memory/set_memory (; 17 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
-  (local $3 i64)
-  (local $4 i32)
+ (func $~lib/internal/memory/memset (; 18 ;) (; has Stack IR ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  (local $2 i32)
   (if
    (i32.eqz
-    (get_local $2)
+    (get_local $1)
    )
    (return)
   )
   (i32.store8
    (get_local $0)
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store8
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 1)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (if
    (i32.le_u
-    (get_local $2)
+    (get_local $1)
     (i32.const 2)
    )
    (return)
@@ -400,38 +386,38 @@
     (get_local $0)
     (i32.const 1)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store8
    (i32.add
     (get_local $0)
     (i32.const 2)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store8
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 2)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store8
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 3)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (if
    (i32.le_u
-    (get_local $2)
+    (get_local $1)
     (i32.const 6)
    )
    (return)
@@ -441,21 +427,21 @@
     (get_local $0)
     (i32.const 3)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store8
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 4)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (if
    (i32.le_u
-    (get_local $2)
+    (get_local $1)
     (i32.const 8)
    )
    (return)
@@ -464,7 +450,7 @@
    (tee_local $0
     (i32.add
      (get_local $0)
-     (tee_local $4
+     (tee_local $2
       (i32.and
        (i32.sub
         (i32.const 0)
@@ -475,25 +461,17 @@
      )
     )
    )
-   (tee_local $1
-    (i32.mul
-     (i32.and
-      (get_local $1)
-      (i32.const 255)
-     )
-     (i32.const 16843009)
-    )
-   )
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (tee_local $2
+     (tee_local $1
       (i32.and
        (i32.sub
+        (get_local $1)
         (get_local $2)
-        (get_local $4)
        )
        (i32.const -4)
       )
@@ -501,11 +479,11 @@
     )
     (i32.const 4)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (if
    (i32.le_u
-    (get_local $2)
+    (get_local $1)
     (i32.const 8)
    )
    (return)
@@ -515,38 +493,38 @@
     (get_local $0)
     (i32.const 4)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.add
     (get_local $0)
     (i32.const 8)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 12)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 8)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (if
    (i32.le_u
-    (get_local $2)
+    (get_local $1)
     (i32.const 24)
    )
    (return)
@@ -556,73 +534,73 @@
     (get_local $0)
     (i32.const 12)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.add
     (get_local $0)
     (i32.const 16)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.add
     (get_local $0)
     (i32.const 20)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.add
     (get_local $0)
     (i32.const 24)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 28)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 24)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 20)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (i32.store
    (i32.sub
     (i32.add
      (get_local $0)
-     (get_local $2)
+     (get_local $1)
     )
     (i32.const 16)
    )
-   (get_local $1)
+   (i32.const 0)
   )
   (set_local $0
    (i32.add
     (get_local $0)
-    (tee_local $4
+    (tee_local $2
      (i32.add
       (i32.and
        (get_local $0)
@@ -633,60 +611,47 @@
     )
    )
   )
-  (set_local $2
+  (set_local $1
    (i32.sub
+    (get_local $1)
     (get_local $2)
-    (get_local $4)
-   )
-  )
-  (set_local $3
-   (i64.or
-    (i64.extend_u/i32
-     (get_local $1)
-    )
-    (i64.shl
-     (i64.extend_u/i32
-      (get_local $1)
-     )
-     (i64.const 32)
-    )
    )
   )
   (loop $continue|0
    (if
     (i32.ge_u
-     (get_local $2)
+     (get_local $1)
      (i32.const 32)
     )
     (block
      (i64.store
       (get_local $0)
-      (get_local $3)
+      (i64.const 0)
      )
      (i64.store
       (i32.add
        (get_local $0)
        (i32.const 8)
       )
-      (get_local $3)
+      (i64.const 0)
      )
      (i64.store
       (i32.add
        (get_local $0)
        (i32.const 16)
       )
-      (get_local $3)
+      (i64.const 0)
      )
      (i64.store
       (i32.add
        (get_local $0)
        (i32.const 24)
       )
-      (get_local $3)
+      (i64.const 0)
      )
-     (set_local $2
+     (set_local $1
       (i32.sub
-       (get_local $2)
+       (get_local $1)
        (i32.const 32)
       )
      )
@@ -701,59 +666,47 @@
    )
   )
  )
- (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 18 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/typedarray/TypedArray<u8_u32>#constructor (; 19 ;) (; has Stack IR ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  (local $1 i32)
   (local $2 i32)
   (if
    (i32.gt_u
-    (get_local $1)
+    (get_local $0)
     (i32.const 1073741816)
    )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 56)
-     (i32.const 18)
-     (i32.const 34)
-    )
-    (unreachable)
-   )
+   (unreachable)
   )
-  (call $~lib/memory/set_memory
+  (call $~lib/internal/memory/memset
    (i32.add
     (tee_local $2
-     (call $~lib/internal/arraybuffer/allocUnsafe
-      (get_local $1)
+     (call $~lib/internal/arraybuffer/allocateUnsafe
+      (tee_local $1
+       (get_local $0)
+      )
      )
     )
     (i32.const 8)
    )
-   (i32.const 0)
-   (get_local $1)
+   (get_local $0)
   )
   (i32.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i32.store
-      (tee_local $0
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 12)
-       )
-      )
-      (i32.const 0)
-     )
-     (i32.store offset=4
-      (get_local $0)
-      (i32.const 0)
-     )
-     (i32.store offset=8
-      (get_local $0)
-      (i32.const 0)
-     )
-     (get_local $0)
+   (tee_local $0
+    (call $~lib/memory/memory.allocate
+     (i32.const 12)
     )
    )
+   (i32.const 0)
+  )
+  (i32.store offset=4
+   (get_local $0)
+   (i32.const 0)
+  )
+  (i32.store offset=8
+   (get_local $0)
+   (i32.const 0)
+  )
+  (i32.store
+   (get_local $0)
    (get_local $2)
   )
   (i32.store offset=4
@@ -766,56 +719,48 @@
   )
   (get_local $0)
  )
- (func $../gxctslib/datastream/DataStream#constructor (; 19 ;) (type $iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
-  (local $3 i32)
+ (func $../gxctslib/datastream/DataStream#constructor (; 20 ;) (; has Stack IR ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
   (i32.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i32.store
-      (tee_local $3
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 12)
-       )
-      )
-      (i32.const 0)
-     )
-     (i32.store offset=4
-      (get_local $3)
-      (i32.const 0)
-     )
-     (i32.store offset=8
-      (get_local $3)
-      (i32.const 0)
-     )
-     (tee_local $0
-      (get_local $3)
-     )
+   (tee_local $2
+    (call $~lib/memory/memory.allocate
+     (i32.const 12)
     )
    )
-   (get_local $1)
-  )
-  (i32.store offset=4
-   (get_local $0)
-   (get_local $2)
-  )
-  (i32.store offset=8
-   (get_local $0)
    (i32.const 0)
   )
-  (get_local $0)
+  (i32.store offset=4
+   (get_local $2)
+   (i32.const 0)
+  )
+  (i32.store offset=8
+   (get_local $2)
+   (i32.const 0)
+  )
+  (i32.store
+   (get_local $2)
+   (get_local $0)
+  )
+  (i32.store offset=4
+   (get_local $2)
+   (get_local $1)
+  )
+  (i32.store offset=8
+   (get_local $2)
+   (i32.const 0)
+  )
+  (get_local $2)
  )
- (func $../gxctslib/gxclib/Contract#get_ds (; 20 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/env/Contract#get_ds (; 21 ;) (; has Stack IR ;) (type $FUNCSIG$i) (result i32)
+  (local $0 i32)
   (local $1 i32)
   (drop
-   (call $../gxctslib/gxclib/env.read_action_data
+   (call $../gxctslib/env/read_action_data
     (i32.load
      (tee_local $1
       (call $~lib/internal/typedarray/TypedArray<u8_u32>#constructor
-       (i32.const 0)
        (tee_local $0
-        (call $../gxctslib/gxclib/env.action_data_size)
+        (call $../gxctslib/env/action_data_size)
        )
       )
      )
@@ -824,14 +769,13 @@
    )
   )
   (call $../gxctslib/datastream/DataStream#constructor
-   (i32.const 0)
    (i32.load
     (get_local $1)
    )
    (get_local $0)
   )
  )
- (func $../gxctslib/datastream/DataStream#read<u64> (; 21 ;) (type $iI) (param $0 i32) (result i64)
+ (func $../gxctslib/datastream/DataStream#read<u64> (; 22 ;) (; has Stack IR ;) (type $iI) (param $0 i32) (result i64)
   (local $1 i64)
   (set_local $1
    (i64.load
@@ -856,7 +800,7 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/datastream/DataStream#read<u32> (; 22 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/datastream/DataStream#read<u32> (; 23 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (set_local $1
    (i32.load
@@ -881,144 +825,74 @@
   )
   (get_local $1)
  )
- (func $../gxctslib/actions/Create#constructor (; 23 ;) (type $iIIiiii) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i32) (param $4 i32) (param $5 i32) (result i32)
-  (local $6 i32)
+ (func $../gxctslib/actions/Create#constructor (; 24 ;) (; has Stack IR ;) (type $FUNCSIG$ijjiii) (param $0 i64) (param $1 i64) (param $2 i32) (param $3 i32) (param $4 i32) (result i32)
+  (local $5 i32)
   (i64.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i64.store
-      (tee_local $6
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 28)
-       )
-      )
-      (i64.const 0)
-     )
-     (i64.store offset=8
-      (get_local $6)
-      (i64.const 0)
-     )
-     (i32.store offset=16
-      (get_local $6)
-      (i32.const 0)
-     )
-     (i32.store offset=20
-      (get_local $6)
-      (i32.const 0)
-     )
-     (i32.store offset=24
-      (get_local $6)
-      (i32.const 0)
-     )
-     (tee_local $0
-      (get_local $6)
-     )
+   (tee_local $5
+    (call $~lib/memory/memory.allocate
+     (i32.const 28)
     )
    )
-   (get_local $1)
+   (i64.const 0)
   )
   (i64.store offset=8
-   (get_local $0)
-   (get_local $2)
+   (get_local $5)
+   (i64.const 0)
   )
   (i32.store offset=16
-   (get_local $0)
-   (get_local $3)
+   (get_local $5)
+   (i32.const 0)
   )
   (i32.store offset=20
-   (get_local $0)
-   (get_local $4)
+   (get_local $5)
+   (i32.const 0)
   )
   (i32.store offset=24
-   (get_local $0)
    (get_local $5)
-  )
-  (get_local $0)
- )
- (func $../gxctslib/actions/Create.from_ds (; 24 ;) (type $ii) (param $0 i32) (result i32)
-  (call $../gxctslib/actions/Create#constructor
    (i32.const 0)
-   (call $../gxctslib/datastream/DataStream#read<u64>
-    (get_local $0)
-   )
-   (call $../gxctslib/datastream/DataStream#read<u64>
-    (get_local $0)
-   )
-   (call $../gxctslib/datastream/DataStream#read<u32>
-    (get_local $0)
-   )
-   (call $../gxctslib/datastream/DataStream#read<u32>
-    (get_local $0)
-   )
-   (call $../gxctslib/datastream/DataStream#read<u32>
-    (get_local $0)
-   )
   )
- )
- (func $~lib/array/Array<u8>#constructor (; 25 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (if
-   (i32.gt_u
-    (get_local $1)
-    (i32.const 1073741816)
-   )
-   (block
-    (call $abort
-     (i32.const 0)
-     (i32.const 208)
-     (i32.const 23)
-     (i32.const 39)
-    )
-    (unreachable)
-   )
-  )
-  (set_local $2
-   (call $~lib/internal/arraybuffer/allocUnsafe
-    (tee_local $3
-     (get_local $1)
-    )
-   )
-  )
-  (i32.store
-   (if (result i32)
-    (get_local $0)
-    (get_local $0)
-    (block (result i32)
-     (i32.store
-      (tee_local $0
-       (call $~lib/allocator/arena/allocate_memory
-        (i32.const 8)
-       )
-      )
-      (i32.const 0)
-     )
-     (i32.store offset=4
-      (get_local $0)
-      (i32.const 0)
-     )
-     (get_local $0)
-    )
-   )
-   (get_local $2)
-  )
-  (i32.store offset=4
+  (i64.store
+   (get_local $5)
    (get_local $0)
+  )
+  (i64.store offset=8
+   (get_local $5)
    (get_local $1)
   )
-  (call $~lib/memory/set_memory
-   (i32.add
-    (get_local $2)
-    (i32.const 8)
-   )
-   (i32.const 0)
+  (i32.store offset=16
+   (get_local $5)
+   (get_local $2)
+  )
+  (i32.store offset=20
+   (get_local $5)
    (get_local $3)
   )
-  (get_local $0)
+  (i32.store offset=24
+   (get_local $5)
+   (get_local $4)
+  )
+  (get_local $5)
  )
- (func $~lib/memory/copy_memory (; 26 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $../gxctslib/actions/Create.from_ds (; 25 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
+  (call $../gxctslib/actions/Create#constructor
+   (call $../gxctslib/datastream/DataStream#read<u64>
+    (get_local $0)
+   )
+   (call $../gxctslib/datastream/DataStream#read<u64>
+    (get_local $0)
+   )
+   (call $../gxctslib/datastream/DataStream#read<u32>
+    (get_local $0)
+   )
+   (call $../gxctslib/datastream/DataStream#read<u32>
+    (get_local $0)
+   )
+   (call $../gxctslib/datastream/DataStream#read<u32>
+    (get_local $0)
+   )
+  )
+ )
+ (func $~lib/internal/memory/memcpy (; 26 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (loop $continue|0
@@ -2594,7 +2468,7 @@
    )
   )
  )
- (func $~lib/memory/move_memory (; 27 ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/internal/memory/memmove (; 27 ;) (; has Stack IR ;) (type $iiiv) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (if
    (i32.eq
@@ -2624,7 +2498,7 @@
     )
    )
    (block
-    (call $~lib/memory/copy_memory
+    (call $~lib/internal/memory/memcpy
      (get_local $0)
      (get_local $1)
      (get_local $2)
@@ -2881,7 +2755,7 @@
    )
   )
  )
- (func $~lib/internal/arraybuffer/reallocUnsafe (; 28 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/internal/arraybuffer/reallocateUnsafe (; 28 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (if
@@ -2899,15 +2773,7 @@
       (get_local $1)
       (i32.const 1073741816)
      )
-     (block
-      (call $abort
-       (i32.const 0)
-       (i32.const 116)
-       (i32.const 32)
-       (i32.const 4)
-      )
-      (unreachable)
-     )
+     (unreachable)
     )
     (if
      (i32.le_s
@@ -2924,7 +2790,7 @@
        (get_local $0)
        (get_local $1)
       )
-      (call $~lib/memory/set_memory
+      (call $~lib/internal/memory/memset
        (i32.add
         (i32.add
          (get_local $0)
@@ -2932,7 +2798,6 @@
         )
         (get_local $2)
        )
-       (i32.const 0)
        (i32.sub
         (get_local $1)
         (get_local $2)
@@ -2940,10 +2805,10 @@
       )
      )
      (block
-      (call $~lib/memory/move_memory
+      (call $~lib/internal/memory/memmove
        (i32.add
         (tee_local $3
-         (call $~lib/internal/arraybuffer/allocUnsafe
+         (call $~lib/internal/arraybuffer/allocateUnsafe
           (get_local $1)
          )
         )
@@ -2955,7 +2820,7 @@
        )
        (get_local $2)
       )
-      (call $~lib/memory/set_memory
+      (call $~lib/internal/memory/memset
        (i32.add
         (i32.add
          (get_local $3)
@@ -2963,7 +2828,6 @@
         )
         (get_local $2)
        )
-       (i32.const 0)
        (i32.sub
         (get_local $1)
         (get_local $2)
@@ -2986,15 +2850,7 @@
        (get_local $1)
        (i32.const 0)
       )
-      (block
-       (call $abort
-        (i32.const 0)
-        (i32.const 116)
-        (i32.const 56)
-        (i32.const 4)
-       )
-       (unreachable)
-      )
+      (unreachable)
      )
      (i32.store
       (get_local $0)
@@ -3005,13 +2861,13 @@
   )
   (get_local $0)
  )
- (func $~lib/array/Array<u8>#push (; 29 ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#push (; 29 ;) (; has Stack IR ;) (type $iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
-  (set_local $3
+  (set_local $4
    (i32.add
-    (tee_local $2
+    (tee_local $3
      (i32.load offset=4
       (get_local $0)
      )
@@ -3021,9 +2877,9 @@
   )
   (if
    (i32.ge_u
-    (get_local $2)
+    (get_local $3)
     (i32.load
-     (tee_local $4
+     (tee_local $2
       (i32.load
        (get_local $0)
       )
@@ -3033,110 +2889,140 @@
    (block
     (if
      (i32.ge_u
-      (get_local $2)
+      (get_local $3)
       (i32.const 1073741816)
      )
-     (block
-      (call $abort
-       (i32.const 0)
-       (i32.const 208)
-       (i32.const 143)
-       (i32.const 42)
-      )
-      (unreachable)
+     (unreachable)
+    )
+    (set_local $2
+     (call $~lib/internal/arraybuffer/reallocateUnsafe
+      (get_local $2)
+      (get_local $4)
      )
     )
     (i32.store
      (get_local $0)
-     (tee_local $4
-      (call $~lib/internal/arraybuffer/reallocUnsafe
-       (get_local $4)
-       (get_local $3)
-      )
-     )
+     (get_local $2)
     )
    )
   )
   (i32.store offset=4
    (get_local $0)
-   (get_local $3)
+   (get_local $4)
   )
   (i32.store8 offset=8
    (i32.add
-    (get_local $4)
     (get_local $2)
+    (get_local $3)
    )
    (get_local $1)
   )
-  (get_local $3)
+  (get_local $4)
  )
- (func $../gxctslib/utils/toUTF8Array (; 30 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/toUTF8Array (; 30 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (set_local $2
-   (call $~lib/array/Array<u8>#constructor
-    (i32.const 0)
-    (i32.const 0)
-   )
+   (i32.const 64)
   )
-  (loop $continue|0
-   (if
-    (i32.lt_s
-     (get_local $3)
-     (i32.load
-      (get_local $0)
+  (block $break|0
+   (loop $repeat|0
+    (br_if $break|0
+     (i32.ge_s
+      (get_local $3)
+      (i32.load
+       (get_local $0)
+      )
      )
     )
-    (block
-     (if
-      (i32.lt_s
-       (tee_local $1
-        (call $~lib/string/String#charCodeAt
-         (get_local $0)
-         (get_local $3)
-        )
+    (if
+     (i32.lt_s
+      (tee_local $1
+       (call $~lib/string/String#charCodeAt
+        (get_local $0)
+        (get_local $3)
        )
-       (i32.const 128)
       )
-      (drop
-       (call $~lib/array/Array<u8>#push
-        (get_local $2)
+      (i32.const 128)
+     )
+     (drop
+      (call $~lib/array/Array<u8>#push
+       (get_local $2)
+       (get_local $1)
+      )
+     )
+     (block
+      (if
+       (i32.lt_s
         (get_local $1)
+        (i32.const 2048)
        )
-      )
-      (block
-       (if
-        (i32.lt_s
-         (get_local $1)
-         (i32.const 2048)
-        )
-        (drop
-         (call $~lib/array/Array<u8>#push
-          (get_local $2)
-          (i32.or
-           (i32.shr_s
-            (get_local $1)
-            (i32.const 6)
-           )
-           (i32.const 192)
+       (drop
+        (call $~lib/array/Array<u8>#push
+         (get_local $2)
+         (i32.or
+          (i32.shr_s
+           (get_local $1)
+           (i32.const 6)
           )
+          (i32.const 192)
          )
         )
-        (block
-         (if
-          (if (result i32)
-           (tee_local $4
-            (i32.lt_s
-             (get_local $1)
-             (i32.const 55296)
-            )
-           )
-           (get_local $4)
-           (i32.ge_s
+       )
+       (block
+        (if
+         (if (result i32)
+          (tee_local $4
+           (i32.lt_s
             (get_local $1)
-            (i32.const 57344)
+            (i32.const 55296)
+           )
+          )
+          (get_local $4)
+          (i32.ge_s
+           (get_local $1)
+           (i32.const 57344)
+          )
+         )
+         (drop
+          (call $~lib/array/Array<u8>#push
+           (get_local $2)
+           (i32.or
+            (i32.shr_s
+             (get_local $1)
+             (i32.const 12)
+            )
+            (i32.const 224)
+           )
+          )
+         )
+         (block
+          (set_local $1
+           (i32.add
+            (i32.or
+             (i32.shl
+              (i32.and
+               (get_local $1)
+               (i32.const 1023)
+              )
+              (i32.const 10)
+             )
+             (i32.and
+              (call $~lib/string/String#charCodeAt
+               (get_local $0)
+               (tee_local $3
+                (i32.add
+                 (get_local $3)
+                 (i32.const 1)
+                )
+               )
+              )
+              (i32.const 1023)
+             )
+            )
+            (i32.const 65536)
            )
           )
           (drop
@@ -3145,106 +3031,67 @@
             (i32.or
              (i32.shr_s
               (get_local $1)
-              (i32.const 12)
+              (i32.const 18)
              )
-             (i32.const 224)
+             (i32.const 240)
             )
            )
           )
-          (block
-           (drop
-            (call $~lib/array/Array<u8>#push
-             (get_local $2)
-             (i32.or
+          (drop
+           (call $~lib/array/Array<u8>#push
+            (get_local $2)
+            (i32.or
+             (i32.and
               (i32.shr_s
-               (tee_local $1
-                (i32.add
-                 (i32.or
-                  (i32.shl
-                   (i32.and
-                    (get_local $1)
-                    (i32.const 1023)
-                   )
-                   (i32.const 10)
-                  )
-                  (i32.and
-                   (call $~lib/string/String#charCodeAt
-                    (get_local $0)
-                    (tee_local $3
-                     (i32.add
-                      (get_local $3)
-                      (i32.const 1)
-                     )
-                    )
-                   )
-                   (i32.const 1023)
-                  )
-                 )
-                 (i32.const 65536)
-                )
-               )
-               (i32.const 18)
+               (get_local $1)
+               (i32.const 12)
               )
-              (i32.const 240)
+              (i32.const 63)
              )
+             (i32.const 128)
             )
-           )
-           (drop
-            (call $~lib/array/Array<u8>#push
-             (get_local $2)
-             (i32.or
-              (i32.and
-               (i32.shr_s
-                (get_local $1)
-                (i32.const 12)
-               )
-               (i32.const 63)
-              )
-              (i32.const 128)
-             )
-            )
-           )
-          )
-         )
-         (drop
-          (call $~lib/array/Array<u8>#push
-           (get_local $2)
-           (i32.or
-            (i32.and
-             (i32.shr_s
-              (get_local $1)
-              (i32.const 6)
-             )
-             (i32.const 63)
-            )
-            (i32.const 128)
            )
           )
          )
         )
-       )
-       (drop
-        (call $~lib/array/Array<u8>#push
-         (get_local $2)
-         (i32.or
-          (i32.and
-           (get_local $1)
-           (i32.const 63)
+        (drop
+         (call $~lib/array/Array<u8>#push
+          (get_local $2)
+          (i32.or
+           (i32.and
+            (i32.shr_s
+             (get_local $1)
+             (i32.const 6)
+            )
+            (i32.const 63)
+           )
+           (i32.const 128)
           )
-          (i32.const 128)
          )
         )
        )
       )
-     )
-     (set_local $3
-      (i32.add
-       (get_local $3)
-       (i32.const 1)
+      (drop
+       (call $~lib/array/Array<u8>#push
+        (get_local $2)
+        (i32.or
+         (i32.and
+          (get_local $1)
+          (i32.const 63)
+         )
+         (i32.const 128)
+        )
+       )
       )
      )
-     (br $continue|0)
     )
+    (set_local $3
+     (i32.add
+      (get_local $3)
+      (i32.const 1)
+     )
+    )
+    (br $repeat|0)
    )
   )
   (drop
@@ -3255,7 +3102,7 @@
   )
   (get_local $2)
  )
- (func $../gxctslib/utils/string2cstr (; 31 ;) (type $ii) (param $0 i32) (result i32)
+ (func $../gxctslib/utils/string2cstr (; 31 ;) (; has Stack IR ;) (type $ii) (param $0 i32) (result i32)
   (i32.add
    (i32.load
     (call $../gxctslib/utils/toUTF8Array
@@ -3265,66 +3112,68 @@
    (i32.const 8)
   )
  )
- (func $src/helloworld/HelloWorld#on_create (; 32 ;) (type $iiv) (param $0 i32) (param $1 i32)
+ (func $src/helloworld/HelloWorld#on_create (; 32 ;) (; has Stack IR ;) (type $iiv) (param $0 i32) (param $1 i32)
   (local $2 i32)
-  (call $../gxctslib/gxclib/env.printi
+  (call $../gxctslib/env/printi
    (i64.load
     (get_local $0)
    )
   )
-  (call $../gxctslib/gxclib/env.printi
+  (call $../gxctslib/env/printi
    (i64.extend_u/i32
     (i32.load offset=16
      (get_local $1)
     )
    )
   )
-  (call $../gxctslib/gxclib/env.printi
+  (call $../gxctslib/env/printi
    (i64.extend_u/i32
     (i32.load offset=20
      (get_local $1)
     )
    )
   )
-  (call $../gxctslib/gxclib/env.printi
+  (call $../gxctslib/env/printi
    (i64.extend_u/i32
     (i32.load offset=24
      (get_local $1)
     )
    )
   )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_action_asset_id)
+  (call $../gxctslib/env/printi
+   (call $../gxctslib/env/get_action_asset_id)
   )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_action_asset_amount)
+  (call $../gxctslib/env/printi
+   (call $../gxctslib/env/get_action_asset_amount)
   )
-  (call $../gxctslib/gxclib/env.printi
-   (call $../gxctslib/gxclib/env.get_trx_sender)
+  (call $../gxctslib/env/printi
+   (call $../gxctslib/env/get_trx_sender)
   )
-  (call $../gxctslib/gxclib/env.withdraw_asset
+  (call $../gxctslib/env/withdraw_asset
    (i64.load
     (get_local $0)
    )
-   (call $../gxctslib/gxclib/env.get_trx_sender)
-   (call $../gxctslib/gxclib/env.get_action_asset_id)
+   (call $../gxctslib/env/get_trx_sender)
+   (call $../gxctslib/env/get_action_asset_id)
    (i64.div_s
-    (call $../gxctslib/gxclib/env.get_action_asset_amount)
+    (call $../gxctslib/env/get_action_asset_amount)
     (i64.const 2)
    )
   )
-  (set_local $2
-   (call $../gxctslib/utils/string2cstr
-    (i32.const 176)
+  (call $../gxctslib/env/prints
+   (tee_local $2
+    (call $../gxctslib/utils/string2cstr
+     (i32.const 24)
+    )
    )
   )
   (drop
-   (call $../gxctslib/gxclib/env.db_store_i64
+   (call $../gxctslib/env/db_store_i64
     (i64.load
      (get_local $0)
     )
     (call $../gxctslib/utils/N
-     (i32.const 240)
+     (i32.const 72)
     )
     (i64.const 0)
     (i64.const 1)
@@ -3333,26 +3182,18 @@
    )
   )
  )
- (func $../gxctslib/utils/assert (; 33 ;) (type $iiv) (param $0 i32) (param $1 i32)
-  (if
-   (i32.eqz
-    (i32.and
-     (get_local $0)
-     (i32.const 1)
-    )
-   )
-   (call $../gxctslib/gxclib/env.graphene_assert
-    (i32.const 0)
-    (call $../gxctslib/utils/string2cstr
-     (get_local $1)
-    )
+ (func $../gxctslib/utils/assert (; 33 ;) (; has Stack IR ;) (type $FUNCSIG$v)
+  (call $../gxctslib/env/graphene_assert
+   (i32.const 0)
+   (call $../gxctslib/utils/string2cstr
+    (i32.const 88)
    )
   )
  )
- (func $src/helloworld/HelloWorld#apply (; 34 ;) (type $iIIv) (param $0 i32) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/HelloWorld#apply (; 34 ;) (; has Stack IR ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (if
    (i64.eq
-    (get_local $2)
+    (get_local $1)
     (call $../gxctslib/utils/N
      (i32.const 8)
     )
@@ -3360,39 +3201,29 @@
    (call $src/helloworld/HelloWorld#on_create
     (get_local $0)
     (call $../gxctslib/actions/Create.from_ds
-     (call $../gxctslib/gxclib/Contract#get_ds
-      (get_local $0)
-     )
+     (call $../gxctslib/env/Contract#get_ds)
     )
    )
-   (call $../gxctslib/utils/assert
-    (i32.const 0)
-    (i32.const 252)
-   )
+   (call $../gxctslib/utils/assert)
   )
  )
- (func $src/helloworld/apply (; 35 ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/apply (; 35 ;) (; has Stack IR ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
   (call $src/helloworld/HelloWorld#apply
-   (call $../gxctslib/gxclib/Contract#constructor
-    (i32.const 0)
+   (call $../gxctslib/env/Contract#constructor
     (get_local $0)
    )
-   (get_local $1)
    (get_local $2)
   )
  )
- (func $start (; 36 ;) (type $v)
+ (func $start (; 36 ;) (; has Stack IR ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
-   (i32.and
-    (i32.add
-     (get_global $HEAP_BASE)
-     (i32.const 7)
-    )
-    (i32.const -8)
-   )
+   (i32.const 120)
   )
   (set_global $~lib/allocator/arena/offset
    (get_global $~lib/allocator/arena/startOffset)
   )
+ )
+ (func $null (; 37 ;) (; has Stack IR ;) (type $v)
+  (nop)
  )
 )
