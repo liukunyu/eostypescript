@@ -21,6 +21,10 @@ export class DataStream {
     this.len    = len;
     this.pos    = 0;
   }
+  
+  reset(): void {
+      this.pos = 0;
+  }
 
   readVarint32(): u32 {
     var value: u32 = 0;

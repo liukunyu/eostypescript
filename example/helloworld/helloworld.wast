@@ -30,8 +30,7 @@
  (data (i32.const 64) "8")
  (data (i32.const 72) "\04\00\00\00b\00o\00o\00k")
  (data (i32.const 88) "\04\00\00\00t\00e\00s\00t")
- (data (i32.const 104) "\0d\00\00\000\000\000\000\000\000\000\000\000\000\000\000\000")
- (data (i32.const 136) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
+ (data (i32.const 104) "\0e\00\00\00u\00n\00k\00n\00o\00w\00n\00 \00a\00c\00t\00i\00o\00n")
  (table 1 anyfunc)
  (elem (i32.const 0) $null)
  (import "env" "action_data_size" (func $../gxctslib/env/action_data_size (result i32)))
@@ -3222,8 +3221,53 @@
   )
   (get_local $3)
  )
- (func $../gxctslib/database/Database<i32>#Get (; 36 ;) (; has Stack IR ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/array/Array<u8>#constructor (; 36 ;) (; has Stack IR ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
+  (local $2 i32)
+  (if
+   (i32.gt_u
+    (get_local $0)
+    (i32.const 1073741816)
+   )
+   (unreachable)
+  )
+  (set_local $2
+   (call $~lib/internal/arraybuffer/allocateUnsafe
+    (get_local $0)
+   )
+  )
+  (i32.store
+   (tee_local $1
+    (call $~lib/memory/memory.allocate
+     (i32.const 8)
+    )
+   )
+   (i32.const 0)
+  )
+  (i32.store offset=4
+   (get_local $1)
+   (i32.const 0)
+  )
+  (i32.store
+   (get_local $1)
+   (get_local $2)
+  )
+  (i32.store offset=4
+   (get_local $1)
+   (get_local $0)
+  )
+  (call $~lib/internal/memory/memset
+   (i32.add
+    (get_local $2)
+    (i32.const 8)
+   )
+   (get_local $0)
+  )
+  (get_local $1)
+ )
+ (func $../gxctslib/database/Database<i32>#Get (; 37 ;) (; has Stack IR ;) (type $FUNCSIG$vi) (param $0 i32)
+  (local $1 i32)
+  (local $2 i32)
   (call $../gxctslib/env/printi
    (i64.load
     (get_local $0)
@@ -3244,7 +3288,7 @@
   )
   (call $../gxctslib/env/printi
    (i64.extend_s/i32
-    (tee_local $1
+    (tee_local $0
      (call $../gxctslib/env/db_find_i64
       (i64.load
        (get_local $0)
@@ -3260,23 +3304,32 @@
     )
    )
   )
-  (set_local $0
-   (call $../gxctslib/utils/string2cstr
-    (i32.const 104)
+  (set_local $1
+   (call $~lib/array/Array<u8>#constructor
+    (i32.add
+     (tee_local $2
+      (call $../gxctslib/env/db_get_i64
+       (get_local $0)
+       (i32.const 0)
+       (i32.const 0)
+      )
+     )
+     (i32.const 1)
+    )
    )
   )
   (drop
    (call $../gxctslib/env/db_get_i64
-    (get_local $1)
     (get_local $0)
-    (i32.const 12)
+    (get_local $1)
+    (get_local $2)
    )
   )
   (call $../gxctslib/env/prints
-   (get_local $0)
+   (get_local $1)
   )
  )
- (func $src/helloworld/HelloWorld#test (; 37 ;) (; has Stack IR ;) (type $iv) (param $0 i32)
+ (func $src/helloworld/HelloWorld#test (; 38 ;) (; has Stack IR ;) (type $iv) (param $0 i32)
   (call $../gxctslib/database/Database<i32>#Get
    (call $../gxctslib/database/Database<i32>#constructor
     (i64.load
@@ -3291,15 +3344,15 @@
    )
   )
  )
- (func $../gxctslib/utils/assert (; 38 ;) (; has Stack IR ;) (type $FUNCSIG$v)
+ (func $../gxctslib/utils/assert (; 39 ;) (; has Stack IR ;) (type $FUNCSIG$v)
   (call $../gxctslib/env/graphene_assert
    (i32.const 0)
    (call $../gxctslib/utils/string2cstr
-    (i32.const 136)
+    (i32.const 104)
    )
   )
  )
- (func $src/helloworld/HelloWorld#apply (; 39 ;) (; has Stack IR ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $src/helloworld/HelloWorld#apply (; 40 ;) (; has Stack IR ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (if
    (i64.eq
     (get_local $1)
@@ -3327,7 +3380,7 @@
    )
   )
  )
- (func $src/helloworld/apply (; 40 ;) (; has Stack IR ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
+ (func $src/helloworld/apply (; 41 ;) (; has Stack IR ;) (type $IIIv) (param $0 i64) (param $1 i64) (param $2 i64)
   (call $src/helloworld/HelloWorld#apply
    (call $../gxctslib/env/Contract#constructor
     (get_local $0)
@@ -3335,15 +3388,15 @@
    (get_local $2)
   )
  )
- (func $start (; 41 ;) (; has Stack IR ;) (type $v)
+ (func $start (; 42 ;) (; has Stack IR ;) (type $v)
   (set_global $~lib/allocator/arena/startOffset
-   (i32.const 168)
+   (i32.const 136)
   )
   (set_global $~lib/allocator/arena/offset
    (get_global $~lib/allocator/arena/startOffset)
   )
  )
- (func $null (; 42 ;) (; has Stack IR ;) (type $v)
+ (func $null (; 43 ;) (; has Stack IR ;) (type $v)
   (nop)
  )
 )
